@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3515227D06003CCAFC /* UIKit.framework */; };
+		D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3715227D06003CCAFC /* Foundation.framework */; };
+		D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3915227D06003CCAFC /* CoreGraphics.framework */; };
+		D36CCD4015227D06003CCAFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD3E15227D06003CCAFC /* InfoPlist.strings */; };
+		D36CCD4215227D06003CCAFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD4115227D06003CCAFC /* main.m */; };
+		D36CCD4615227D06003CCAFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD4515227D06003CCAFC /* AppDelegate.m */; };
+		D36CCD4915227D06003CCAFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD4815227D06003CCAFC /* ViewController.m */; };
+		D36CCD4C15227D06003CCAFC /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD4A15227D06003CCAFC /* ViewController_iPhone.xib */; };
+		D36CCD4F15227D06003CCAFC /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD4D15227D06003CCAFC /* ViewController_iPad.xib */; };
+		D36CCD5715227D06003CCAFC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD5615227D06003CCAFC /* SenTestingKit.framework */; };
+		D36CCD5815227D06003CCAFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3515227D06003CCAFC /* UIKit.framework */; };
+		D36CCD5915227D06003CCAFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3715227D06003CCAFC /* Foundation.framework */; };
+		D36CCD6115227D06003CCAFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD5F15227D06003CCAFC /* InfoPlist.strings */; };
+		D36CCD6415227D06003CCAFC /* Video_TuneupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D36CCD5A15227D06003CCAFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D36CCD2815227D05003CCAFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D36CCD3015227D05003CCAFC;
+			remoteInfo = "Video Tuneup";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D36CCD3115227D05003CCAFC /* Video Tuneup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Tuneup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36CCD3515227D06003CCAFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D36CCD3715227D06003CCAFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D36CCD3915227D06003CCAFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D36CCD3D15227D06003CCAFC /* Video Tuneup-Info.plist */ = {isa = PBXFileReference; path = "Video Tuneup-Info.plist"; sourceTree = "<group>"; };
+		D36CCD3F15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D36CCD4115227D06003CCAFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D36CCD4315227D06003CCAFC /* Video Tuneup-Prefix.pch */ = {isa = PBXFileReference; path = "Video Tuneup-Prefix.pch"; sourceTree = "<group>"; };
+		D36CCD4415227D06003CCAFC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		D36CCD4515227D06003CCAFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D36CCD4715227D06003CCAFC /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		D36CCD4815227D06003CCAFC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D36CCD4B15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		D36CCD4E15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		D36CCD5515227D06003CCAFC /* Video TuneupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video TuneupTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36CCD5615227D06003CCAFC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D36CCD5E15227D06003CCAFC /* Video TuneupTests-Info.plist */ = {isa = PBXFileReference; path = "Video TuneupTests-Info.plist"; sourceTree = "<group>"; };
+		D36CCD6015227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D36CCD6215227D06003CCAFC /* Video_TuneupTests.h */ = {isa = PBXFileReference; path = Video_TuneupTests.h; sourceTree = "<group>"; };
+		D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Video_TuneupTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D36CCD2E15227D05003CCAFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */,
+				D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */,
+				D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36CCD5115227D06003CCAFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD5715227D06003CCAFC /* SenTestingKit.framework in Frameworks */,
+				D36CCD5815227D06003CCAFC /* UIKit.framework in Frameworks */,
+				D36CCD5915227D06003CCAFC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D36CCD2615227D05003CCAFC = {
+			isa = PBXGroup;
+			children = (
+				D36CCD3B15227D06003CCAFC /* Video Tuneup */,
+				D36CCD5C15227D06003CCAFC /* Video TuneupTests */,
+				D36CCD3415227D06003CCAFC /* Frameworks */,
+				D36CCD3215227D05003CCAFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D36CCD3215227D05003CCAFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD3115227D05003CCAFC /* Video Tuneup.app */,
+				D36CCD5515227D06003CCAFC /* Video TuneupTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D36CCD3415227D06003CCAFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD3515227D06003CCAFC /* UIKit.framework */,
+				D36CCD3715227D06003CCAFC /* Foundation.framework */,
+				D36CCD3915227D06003CCAFC /* CoreGraphics.framework */,
+				D36CCD5615227D06003CCAFC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D36CCD3B15227D06003CCAFC /* Video Tuneup */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD4415227D06003CCAFC /* AppDelegate.h */,
+				D36CCD4515227D06003CCAFC /* AppDelegate.m */,
+				D36CCD4715227D06003CCAFC /* ViewController.h */,
+				D36CCD4815227D06003CCAFC /* ViewController.m */,
+				D36CCD4A15227D06003CCAFC /* ViewController_iPhone.xib */,
+				D36CCD4D15227D06003CCAFC /* ViewController_iPad.xib */,
+				D36CCD3C15227D06003CCAFC /* Supporting Files */,
+			);
+			path = "Video Tuneup";
+			sourceTree = "<group>";
+		};
+		D36CCD3C15227D06003CCAFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD3D15227D06003CCAFC /* Video Tuneup-Info.plist */,
+				D36CCD3E15227D06003CCAFC /* InfoPlist.strings */,
+				D36CCD4115227D06003CCAFC /* main.m */,
+				D36CCD4315227D06003CCAFC /* Video Tuneup-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D36CCD5C15227D06003CCAFC /* Video TuneupTests */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD6215227D06003CCAFC /* Video_TuneupTests.h */,
+				D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */,
+				D36CCD5D15227D06003CCAFC /* Supporting Files */,
+			);
+			path = "Video TuneupTests";
+			sourceTree = "<group>";
+		};
+		D36CCD5D15227D06003CCAFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD5E15227D06003CCAFC /* Video TuneupTests-Info.plist */,
+				D36CCD5F15227D06003CCAFC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D36CCD3015227D05003CCAFC /* Video Tuneup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D36CCD6715227D06003CCAFC /* Build configuration list for PBXNativeTarget "Video Tuneup" */;
+			buildPhases = (
+				D36CCD2D15227D05003CCAFC /* Sources */,
+				D36CCD2E15227D05003CCAFC /* Frameworks */,
+				D36CCD2F15227D05003CCAFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Video Tuneup";
+			productName = "Video Tuneup";
+			productReference = D36CCD3115227D05003CCAFC /* Video Tuneup.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D36CCD5415227D06003CCAFC /* Video TuneupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D36CCD6A15227D06003CCAFC /* Build configuration list for PBXNativeTarget "Video TuneupTests" */;
+			buildPhases = (
+				D36CCD5015227D06003CCAFC /* Sources */,
+				D36CCD5115227D06003CCAFC /* Frameworks */,
+				D36CCD5215227D06003CCAFC /* Resources */,
+				D36CCD5315227D06003CCAFC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D36CCD5B15227D06003CCAFC /* PBXTargetDependency */,
+			);
+			name = "Video TuneupTests";
+			productName = "Video TuneupTests";
+			productReference = D36CCD5515227D06003CCAFC /* Video TuneupTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D36CCD2815227D05003CCAFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D36CCD2B15227D05003CCAFC /* Build configuration list for PBXProject "Video Tuneup" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D36CCD2615227D05003CCAFC;
+			productRefGroup = D36CCD3215227D05003CCAFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D36CCD3015227D05003CCAFC /* Video Tuneup */,
+				D36CCD5415227D06003CCAFC /* Video TuneupTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D36CCD2F15227D05003CCAFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD4015227D06003CCAFC /* InfoPlist.strings in Resources */,
+				D36CCD4C15227D06003CCAFC /* ViewController_iPhone.xib in Resources */,
+				D36CCD4F15227D06003CCAFC /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36CCD5215227D06003CCAFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD6115227D06003CCAFC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D36CCD5315227D06003CCAFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D36CCD2D15227D05003CCAFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD4215227D06003CCAFC /* main.m in Sources */,
+				D36CCD4615227D06003CCAFC /* AppDelegate.m in Sources */,
+				D36CCD4915227D06003CCAFC /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D36CCD5015227D06003CCAFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D36CCD6415227D06003CCAFC /* Video_TuneupTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D36CCD5B15227D06003CCAFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D36CCD3015227D05003CCAFC /* Video Tuneup */;
+			targetProxy = D36CCD5A15227D06003CCAFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D36CCD3E15227D06003CCAFC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D36CCD3F15227D06003CCAFC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D36CCD4A15227D06003CCAFC /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D36CCD4B15227D06003CCAFC /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		D36CCD4D15227D06003CCAFC /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D36CCD4E15227D06003CCAFC /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		D36CCD5F15227D06003CCAFC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D36CCD6015227D06003CCAFC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D36CCD6515227D06003CCAFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D36CCD6615227D06003CCAFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D36CCD6815227D06003CCAFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
+				INFOPLIST_FILE = "Video Tuneup/Video Tuneup-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D36CCD6915227D06003CCAFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
+				INFOPLIST_FILE = "Video Tuneup/Video Tuneup-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D36CCD6B15227D06003CCAFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Video Tuneup.app/Video Tuneup";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
+				INFOPLIST_FILE = "Video TuneupTests/Video TuneupTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D36CCD6C15227D06003CCAFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Video Tuneup.app/Video Tuneup";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
+				INFOPLIST_FILE = "Video TuneupTests/Video TuneupTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D36CCD2B15227D05003CCAFC /* Build configuration list for PBXProject "Video Tuneup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36CCD6515227D06003CCAFC /* Debug */,
+				D36CCD6615227D06003CCAFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D36CCD6715227D06003CCAFC /* Build configuration list for PBXNativeTarget "Video Tuneup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36CCD6815227D06003CCAFC /* Debug */,
+				D36CCD6915227D06003CCAFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D36CCD6A15227D06003CCAFC /* Build configuration list for PBXNativeTarget "Video TuneupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36CCD6B15227D06003CCAFC /* Debug */,
+				D36CCD6C15227D06003CCAFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D36CCD2815227D05003CCAFC /* Project object */;
+}
