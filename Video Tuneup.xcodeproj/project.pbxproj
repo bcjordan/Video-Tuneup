@@ -38,21 +38,21 @@
 		D36CCD3515227D06003CCAFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D36CCD3715227D06003CCAFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D36CCD3915227D06003CCAFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D36CCD3D15227D06003CCAFC /* Video Tuneup-Info.plist */ = {isa = PBXFileReference; path = "Video Tuneup-Info.plist"; sourceTree = "<group>"; };
+		D36CCD3D15227D06003CCAFC /* Video Tuneup-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Video Tuneup-Info.plist"; sourceTree = "<group>"; };
 		D36CCD3F15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D36CCD4115227D06003CCAFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D36CCD4315227D06003CCAFC /* Video Tuneup-Prefix.pch */ = {isa = PBXFileReference; path = "Video Tuneup-Prefix.pch"; sourceTree = "<group>"; };
-		D36CCD4415227D06003CCAFC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		D36CCD4315227D06003CCAFC /* Video Tuneup-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Video Tuneup-Prefix.pch"; sourceTree = "<group>"; };
+		D36CCD4415227D06003CCAFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D36CCD4515227D06003CCAFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D36CCD4715227D06003CCAFC /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		D36CCD4715227D06003CCAFC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D36CCD4815227D06003CCAFC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D36CCD4B15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		D36CCD4E15227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		D36CCD5515227D06003CCAFC /* Video TuneupTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video TuneupTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36CCD5615227D06003CCAFC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D36CCD5E15227D06003CCAFC /* Video TuneupTests-Info.plist */ = {isa = PBXFileReference; path = "Video TuneupTests-Info.plist"; sourceTree = "<group>"; };
+		D36CCD5E15227D06003CCAFC /* Video TuneupTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Video TuneupTests-Info.plist"; sourceTree = "<group>"; };
 		D36CCD6015227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D36CCD6215227D06003CCAFC /* Video_TuneupTests.h */ = {isa = PBXFileReference; path = Video_TuneupTests.h; sourceTree = "<group>"; };
+		D36CCD6215227D06003CCAFC /* Video_TuneupTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Video_TuneupTests.h; sourceTree = "<group>"; };
 		D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Video_TuneupTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
