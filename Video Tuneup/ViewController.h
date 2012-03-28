@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
+@class PlayerView;
 
+@interface ViewController : UIViewController {
+}
+
+@property (nonatomic, retain) AVPlayer *player;
+@property (retain) AVPlayerItem *playerItem;
+@property (nonatomic, retain) IBOutlet PlayerView *playerView;
+@property (nonatomic, retain) IBOutlet UIButton *playButton;
+- (IBAction)loadAssetFromFile:sender;
+- (IBAction)play:sender;
+- (void)syncUI;
 @end

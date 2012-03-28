@@ -21,6 +21,10 @@
 		D36CCD5915227D06003CCAFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3715227D06003CCAFC /* Foundation.framework */; };
 		D36CCD6115227D06003CCAFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD5F15227D06003CCAFC /* InfoPlist.strings */; };
 		D36CCD6415227D06003CCAFC /* Video_TuneupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */; };
+		D36CCD6E15228700003CCAFC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD6D15228700003CCAFC /* AVFoundation.framework */; };
+		D36CCD7115228952003CCAFC /* airplane.m4v in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD7015228952003CCAFC /* airplane.m4v */; };
+		D36CCD7415228ACE003CCAFC /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD7315228ACE003CCAFC /* PlayerView.m */; };
+		D36CCD781522920D003CCAFC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD771522920D003CCAFC /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,11 @@
 		D36CCD6015227D06003CCAFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D36CCD6215227D06003CCAFC /* Video_TuneupTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Video_TuneupTests.h; sourceTree = "<group>"; };
 		D36CCD6315227D06003CCAFC /* Video_TuneupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Video_TuneupTests.m; sourceTree = "<group>"; };
+		D36CCD6D15228700003CCAFC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D36CCD7015228952003CCAFC /* airplane.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = airplane.m4v; sourceTree = "<group>"; };
+		D36CCD7215228ACE003CCAFC /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerView.h; path = Classes/Views/PlayerView.h; sourceTree = "<group>"; };
+		D36CCD7315228ACE003CCAFC /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerView.m; path = Classes/Views/PlayerView.m; sourceTree = "<group>"; };
+		D36CCD771522920D003CCAFC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36CCD781522920D003CCAFC /* CoreMedia.framework in Frameworks */,
+				D36CCD6E15228700003CCAFC /* AVFoundation.framework in Frameworks */,
 				D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */,
 				D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */,
 				D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */,
@@ -83,6 +94,8 @@
 		D36CCD2615227D05003CCAFC = {
 			isa = PBXGroup;
 			children = (
+				D36CCD771522920D003CCAFC /* CoreMedia.framework */,
+				D36CCD6D15228700003CCAFC /* AVFoundation.framework */,
 				D36CCD3B15227D06003CCAFC /* Video Tuneup */,
 				D36CCD5C15227D06003CCAFC /* Video TuneupTests */,
 				D36CCD3415227D06003CCAFC /* Frameworks */,
@@ -113,10 +126,11 @@
 		D36CCD3B15227D06003CCAFC /* Video Tuneup */ = {
 			isa = PBXGroup;
 			children = (
+				D36CCD6F1522893F003CCAFC /* Resources */,
 				D36CCD4415227D06003CCAFC /* AppDelegate.h */,
 				D36CCD4515227D06003CCAFC /* AppDelegate.m */,
-				D36CCD4715227D06003CCAFC /* ViewController.h */,
-				D36CCD4815227D06003CCAFC /* ViewController.m */,
+				D36CCD7615228B04003CCAFC /* Controllers */,
+				D36CCD7515228ADC003CCAFC /* Views */,
 				D36CCD4A15227D06003CCAFC /* ViewController_iPhone.xib */,
 				D36CCD4D15227D06003CCAFC /* ViewController_iPad.xib */,
 				D36CCD3C15227D06003CCAFC /* Supporting Files */,
@@ -152,6 +166,32 @@
 				D36CCD5F15227D06003CCAFC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D36CCD6F1522893F003CCAFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD7015228952003CCAFC /* airplane.m4v */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D36CCD7515228ADC003CCAFC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD7215228ACE003CCAFC /* PlayerView.h */,
+				D36CCD7315228ACE003CCAFC /* PlayerView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D36CCD7615228B04003CCAFC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D36CCD4715227D06003CCAFC /* ViewController.h */,
+				D36CCD4815227D06003CCAFC /* ViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +267,7 @@
 				D36CCD4015227D06003CCAFC /* InfoPlist.strings in Resources */,
 				D36CCD4C15227D06003CCAFC /* ViewController_iPhone.xib in Resources */,
 				D36CCD4F15227D06003CCAFC /* ViewController_iPad.xib in Resources */,
+				D36CCD7115228952003CCAFC /* airplane.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +305,7 @@
 				D36CCD4215227D06003CCAFC /* main.m in Sources */,
 				D36CCD4615227D06003CCAFC /* AppDelegate.m in Sources */,
 				D36CCD4915227D06003CCAFC /* ViewController.m in Sources */,
+				D36CCD7415228ACE003CCAFC /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
