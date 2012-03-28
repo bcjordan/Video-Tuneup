@@ -79,7 +79,7 @@ static const NSString *ItemStatusContext;
 }
 
 - (IBAction)loadAudioFromFile:(id)sender {
-    NSLog(@"Loading audio from file");
+    NSLog(@"Loading audio from file [NOT YET IMPLEMENTED]");
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
