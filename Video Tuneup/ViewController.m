@@ -8,13 +8,14 @@
 
 #import "ViewController.h"
 #import "PlayerView.h"
+#import "SimpleEditor.h"
 
 // Define this constant for the key-value observation context.
 static const NSString *ItemStatusContext;
 
 @implementation ViewController
 
-@synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton;
+@synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor;
 
 #pragma mark - Video playback
 
@@ -40,7 +41,7 @@ static const NSString *ItemStatusContext;
     NSURL *fileURL = [[NSBundle mainBundle]
                       URLForResource:@"airplane" withExtension:@"m4v"];
     
-    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:fileURL options:nil];
+    asset = [AVURLAsset URLAssetWithURL:fileURL options:nil];
 
     NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
     
@@ -103,13 +104,116 @@ static const NSString *ItemStatusContext;
 }
 
 - (IBAction)pause:sender {
+    NSLog(@"Pausing...");
+    
     [player pause];
 }
 
 - (IBAction)rewind:sender {
     [player seekToTime:kCMTimeZero];
 }
+
+- (IBAction)edit:sender {
+
+    NSLog(@"Editing...");
     
+    // Initialize video editor
+    self.editor = [[SimpleEditor alloc] init];    
+    
+    NSMutableArray *clips = [NSMutableArray arrayWithCapacity:3];
+    
+    if(asset) {
+        [clips addObject:asset];
+        [clips addObject:asset];
+        [clips addObject:asset];
+    } else {NSLog(@"Error! No Asset!"); return;}
+    
+    // Copy clips into editor
+//    self.editor.clips = [clips copy];
+    self.editor.clips = clips;
+
+    NSLog(@"Put clips in. Count is %i", [clips count]);
+    
+    // Begin export
+    [self.editor buildCompositionObjectsForPlayback:NO];
+    NSLog(@"Put clips in. Build.");
+	AVAssetExportSession *session = [self.editor assetExportSessionWithPreset:AVAssetExportPresetHighestQuality];
+    NSLog(@"Session");
+    
+    NSLog(@"begin export");
+    NSString *filePath = nil;
+	NSUInteger count = 0;
+	do {
+            NSLog(@"Filepath");
+		filePath = NSTemporaryDirectory();
+		
+		NSString *numberString = count > 0 ? [NSString stringWithFormat:@"-%i", count] : @"";
+		filePath = [filePath stringByAppendingPathComponent:[NSString stringWithFormat:@"Output-%@.mov", numberString]];
+		count++;
+	} while([[NSFileManager defaultManager] fileExistsAtPath:filePath]);      
+
+    NSLog(@"Setting stuff.");
+	
+	session.outputURL = [NSURL fileURLWithPath:filePath];
+	session.outputFileType = AVFileTypeQuickTimeMovie;
+
+    NSLog(@"Exporting asynchronously %i.", [clips count]);
+    
+	[session exportAsynchronouslyWithCompletionHandler:^
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             NSLog(@"Finished exporting.");
+             [self exportDidFinish:session];
+         });
+     }];
+}
+
+- (void)exportDidFinish:(AVAssetExportSession*)session
+{
+    NSLog(@"Finished export, attempting photo album");
+
+    
+	NSURL *outputURL = session.outputURL;
+	
+//	_exporting = NO;
+//	NSIndexPath *exportCellIndexPath = [NSIndexPath indexPathForRow:2 inSection:kProjectSection];
+//	ExportCell *cell = (ExportCell*)[self.tableView cellForRowAtIndexPath:exportCellIndexPath];
+//	cell.progressView.progress = 1.0;
+//	[cell setProgressViewHidden:YES animated:YES];
+//	[self updateCell:cell forRowAtIndexPath:exportCellIndexPath];
+	
+	ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+	if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:outputURL]) {
+		[library writeVideoAtPathToSavedPhotosAlbum:outputURL
+									completionBlock:^(NSURL *assetURL, NSError *error){
+										dispatch_async(dispatch_get_main_queue(), ^{
+											if (error) {
+												NSLog(@"writeVideoToAssestsLibrary failed: %@", error);
+												UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
+																									message:[error localizedRecoverySuggestion]
+																								   delegate:nil
+																						  cancelButtonTitle:@"OK"
+																						  otherButtonTitles:nil];
+												[alertView show];
+//												[alertView release];
+											}
+											else {
+                                                NSLog(@"Completed photo album add");
+//												_showSavedVideoToAssestsLibrary = YES;
+//												ExportCell *cell = (ExportCell*)[self.tableView cellForRowAtIndexPath:exportCellIndexPath];
+//												[cell setDetailTextLabelHidden:NO animated:YES];
+//												[self updateCell:cell forRowAtIndexPath:exportCellIndexPath];
+//												NSArray *modes = [[[NSArray alloc] initWithObjects:NSDefaultRunLoopMode, UITrackingRunLoopMode, nil] autorelease];
+//												[self performSelector:@selector(hideCameraRollText) withObject:nil afterDelay:5.0 inModes:modes];
+											}
+										});
+										
+									}];
+	} else {
+        NSLog(@"Video format is not compatible with saved photos album.");
+    }
+}
+
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     [player seekToTime:kCMTimeZero];
 }
@@ -131,9 +235,9 @@ static const NSString *ItemStatusContext;
     
     NSLog(@"viewDidLoad");
     
-    [self syncUI];
-    
+    // Sync video player controls
     NSLog(@"syncUI");
+    [self syncUI];
     
     // Register with the notification center after creating the player item.
     [[NSNotificationCenter defaultCenter]
