@@ -18,7 +18,11 @@
 @property (retain) AVPlayerItem *playerItem;
 @property (nonatomic, retain) IBOutlet PlayerView *playerView;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
+@property (nonatomic, retain) IBOutlet UIButton *pauseButton;
+
 - (IBAction)loadAssetFromFile:sender;
 - (IBAction)play:sender;
+- (IBAction)pause:sender;
+- (IBAction)rewind:sender;
 - (void)syncUI;
 @end

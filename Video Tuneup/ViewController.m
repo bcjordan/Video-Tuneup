@@ -14,7 +14,7 @@ static const NSString *ItemStatusContext;
 
 @implementation ViewController
 
-@synthesize player, playerItem, playerView, playButton;
+@synthesize player, playerItem, playerView, playButton, pauseButton;
 
 #pragma mark - Video playback
 
@@ -96,6 +96,14 @@ static const NSString *ItemStatusContext;
 
 - (IBAction)play:sender {
     [player play];
+}
+
+- (IBAction)pause:sender {
+    [player pause];
+}
+
+- (IBAction)rewind:sender {
+    [player seekToTime:kCMTimeZero];
 }
     
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
