@@ -14,7 +14,7 @@ static const NSString *ItemStatusContext;
 
 @implementation ViewController
 
-@synthesize player, playerItem, playerView, playButton, pauseButton;
+@synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton;
 
 #pragma mark - Video playback
 
@@ -76,6 +76,10 @@ static const NSString *ItemStatusContext;
                             }
                         });
      }];
+}
+
+- (IBAction)loadAudioFromFile:(id)sender {
+    NSLog(@"Loading audio from file");
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object

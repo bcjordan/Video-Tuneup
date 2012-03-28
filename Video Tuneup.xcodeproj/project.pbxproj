@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3531C94152380D800E286B8 /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3531C93152380D800E286B8 /* song.mp3 */; };
 		D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3515227D06003CCAFC /* UIKit.framework */; };
 		D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3715227D06003CCAFC /* Foundation.framework */; };
 		D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3915227D06003CCAFC /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3531C93152380D800E286B8 /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = song.mp3; path = ../../../../code_others/python/remix/examples/music/song.mp3; sourceTree = "<group>"; };
 		D36CCD3115227D05003CCAFC /* Video Tuneup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Tuneup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36CCD3515227D06003CCAFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D36CCD3715227D06003CCAFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +173,7 @@
 		D36CCD6F1522893F003CCAFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3531C93152380D800E286B8 /* song.mp3 */,
 				D36CCD7015228952003CCAFC /* airplane.m4v */,
 			);
 			name = Resources;
@@ -268,6 +271,7 @@
 				D36CCD4C15227D06003CCAFC /* ViewController_iPhone.xib in Resources */,
 				D36CCD4F15227D06003CCAFC /* ViewController_iPad.xib in Resources */,
 				D36CCD7115228952003CCAFC /* airplane.m4v in Resources */,
+				D3531C94152380D800E286B8 /* song.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +489,7 @@
 				D36CCD6915227D06003CCAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D36CCD6A15227D06003CCAFC /* Build configuration list for PBXNativeTarget "Video TuneupTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				D36CCD6C15227D06003CCAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -19,8 +19,10 @@
 @property (nonatomic, retain) IBOutlet PlayerView *playerView;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) IBOutlet UIButton *pauseButton;
+@property (nonatomic, retain) IBOutlet UIButton *rewindButton;
 
 - (IBAction)loadAssetFromFile:sender;
+- (IBAction)loadAudioFromFile:sender;
 - (IBAction)play:sender;
 - (IBAction)pause:sender;
 - (IBAction)rewind:sender;
