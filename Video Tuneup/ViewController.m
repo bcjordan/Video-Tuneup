@@ -19,17 +19,22 @@ static const NSString *ItemStatusContext;
 #pragma mark - Video playback
 
 - (void)syncUI {
+    NSLog(@"syncUI");
+    
     if ((player.currentItem != nil) &&
         ([player.currentItem status] == AVPlayerItemStatusReadyToPlay)) {
         playButton.enabled = YES;
+        NSLog(@"Enabling play button");
+
     }
     else {
         playButton.enabled = NO;
+        NSLog(@"Play button disabled");
     }
+    
 }
 
 - (IBAction)loadAssetFromFile:sender {
-
     NSLog(@"Loading asset.");    
 
     NSURL *fileURL = [[NSBundle mainBundle]
@@ -111,7 +116,12 @@ static const NSString *ItemStatusContext;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"viewDidLoad");
+    
     [self syncUI];
+    
+    NSLog(@"syncUI");
     
     // Register with the notification center after creating the player item.
     [[NSNotificationCenter defaultCenter]
@@ -120,6 +130,7 @@ static const NSString *ItemStatusContext;
      name:AVPlayerItemDidPlayToEndTimeNotification
      object:[player currentItem]];
 
+    NSLog(@"registered");
 
 	// Do any additional setup after loading the view, typically from a nib.
     // http://mobileorchard.com/easy-audio-playback-with-avaudioplayer/
