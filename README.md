@@ -1,3 +1,7 @@
+# Screenshot
+
+![](https://github.com/bcjordan/Video-Tuneup/raw/master/screenshot.png)
+
 # Generating music based on video
   * mp3 and add audio-ducking (potentially covered by iMovie)
   * midi generation (tough algorithmically, maybe more of an april project or entire thesis)
