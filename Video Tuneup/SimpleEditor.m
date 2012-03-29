@@ -125,7 +125,7 @@
 
 - (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback
 {
-	AVMutableComposition *composition = [AVMutableComposition composition];
+	AVMutableComposition *composition = [[AVMutableComposition alloc]init];
 	AVMutableAudioMix *audioMix = nil;
 
 	CGSize videoSize = [self.video naturalSize];
@@ -153,9 +153,8 @@
 #endif // TARGET_OS_EMBEDDED
 		
 		AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:self.composition];
-		playerItem.audioMix = audioMix;
+//		playerItem.audioMix = audioMix;
 		self.playerItem = playerItem;
-
 	}
 }
 

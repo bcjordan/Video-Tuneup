@@ -25,13 +25,16 @@
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) IBOutlet UIButton *pauseButton;
 @property (nonatomic, retain) IBOutlet UIButton *rewindButton;
+@property (nonatomic, retain) IBOutlet UIToolbar *videoNavBar;
+@property (nonatomic, retain) IBOutlet UILabel *exportStatus;
 
+- (void)hideCameraRollText;
 - (IBAction)loadAssetFromFile:sender;
 - (IBAction)loadAudioFromFile:sender;
 - (IBAction)play:sender;
 - (IBAction)pause:sender;
 - (IBAction)rewind:sender;
-- (IBAction)edit:sender;
+- (IBAction)exportToCameraRoll:sender;
 - (void)syncUI;
 
 - (void)exportDidFinish:(AVAssetExportSession*)session;
