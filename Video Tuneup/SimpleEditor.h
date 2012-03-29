@@ -51,69 +51,48 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CMTime.h>
 
-
-typedef enum {
-	SimpleEditorTransitionTypeNone,
-	SimpleEditorTransitionTypeCrossFade,
-	SimpleEditorTransitionTypePush
-} SimpleEditorTransitionType;
-
-
 @interface SimpleEditor : NSObject 
 {	
-	// Configuration
-	
-	NSArray *_clips;			// array of AVURLAssets
-	NSArray *_clipTimeRanges;	// array of CMTimeRanges stored in NSValues.
-	
-	AVURLAsset *_commentary;
-	CMTime _commentaryStartTime;
-	
-	SimpleEditorTransitionType _transitionType;
-	CMTime _transitionDuration;
-	
-	NSString *_titleText;
-	
-	
-	// Composition objects.
-	
+    // Assets
+
+    AVURLAsset *_video;
+	CMTime _videoStartTime;
+    
+	AVURLAsset *_song;
+	CMTime _songStartTime;
+
+	// Composition objects
+
 	AVComposition *_composition;
-	AVVideoComposition *_videoComposition;
 	AVAudioMix *_audioMix;
 	
-	AVPlayerItem *_playerItem;
-	AVSynchronizedLayer *_synchronizedLayer;
+	AVPlayerItem *_playerItem; // Reference to player of work-in-progress
 }
 
 // Set these properties before building the composition objects.
-@property (nonatomic, retain) NSArray *clips;
-@property (nonatomic, retain) NSArray *clipTimeRanges;
 
-@property (nonatomic, retain) AVURLAsset *commentary;
-@property (nonatomic) CMTime commentaryStartTime;
+@property (nonatomic, retain) AVURLAsset *video;
+@property (nonatomic) CMTime videoStartTime;
 
-@property (nonatomic) SimpleEditorTransitionType transitionType;
-@property (nonatomic) CMTime transitionDuration;
+@property (nonatomic, retain) AVURLAsset *song;
+@property (nonatomic) CMTime songStartTime;
 
-@property (nonatomic, retain) NSString *titleText;
-
-
-// Build the composition, videoComposition, and audioMix. 
-// If the composition is being built for playback then a synchronized layer and player item are also constructed.
+// Build the composition, videoComposition, and audioMix.
+// If the composition is being built for playback then a player item is also constructed.
 // All of these objects can be retrieved all of these objects with the accessors below.
 // Calling buildCompositionObjectsForPlayback: will get rid of any previously created composition objects.
 - (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback;
 
-@property (nonatomic, readonly, retain) AVComposition *composition;
-@property (nonatomic, readonly, retain) AVVideoComposition *videoComposition;
-@property (nonatomic, readonly, retain) AVAudioMix *audioMix;
+@property (nonatomic, retain) AVComposition *composition;
+//@property (nonatomic, readonly, retain) AVVideoComposition *videoComposition;
+@property (nonatomic, readwrite, retain) AVAudioMix *audioMix;
+@property (nonatomic, readwrite, retain) AVPlayerItem *playerItem;
+
 
 - (void)getPlayerItem:(AVPlayerItem**)playerItemOut andSynchronizedLayer:(AVSynchronizedLayer**)synchronizedLayerOut;
 // The synchronized layer contains a layer tree which is synchronized with the provided player item.
 // Inside the layer tree there is a playerLayer along with other layers related to titling.
 
-- (AVAssetImageGenerator*)assetImageGenerator;
 - (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName;
-
 
 @end
