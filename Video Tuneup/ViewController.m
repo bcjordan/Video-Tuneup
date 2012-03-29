@@ -119,23 +119,11 @@ static const NSString *ItemStatusContext;
     
     // Initialize video editor
     self.editor = [[SimpleEditor alloc] init];    
-    
-    NSMutableArray *clips = [NSMutableArray arrayWithCapacity:3];
-    
-    if(asset) {
-        [clips addObject:asset];
-        [clips addObject:asset];
-        [clips addObject:asset];
-    } else {NSLog(@"Error! No Asset!"); return;}
-    
-    // Copy clips into editor
-//    self.editor.clips = [clips copy];
-    self.editor.clips = clips;
+    self.editor.video = asset;
 
-    NSLog(@"Put clips in. Count is %i", [clips count]);
-    
     // Begin export
     [self.editor buildCompositionObjectsForPlayback:NO];
+
     NSLog(@"Put clips in. Build.");
 	AVAssetExportSession *session = [self.editor assetExportSessionWithPreset:AVAssetExportPresetHighestQuality];
     NSLog(@"Session");
@@ -157,8 +145,6 @@ static const NSString *ItemStatusContext;
 	session.outputURL = [NSURL fileURLWithPath:filePath];
 	session.outputFileType = AVFileTypeQuickTimeMovie;
 
-    NSLog(@"Exporting asynchronously %i.", [clips count]);
-    
 	[session exportAsynchronouslyWithCompletionHandler:^
      {
          dispatch_async(dispatch_get_main_queue(), ^{
