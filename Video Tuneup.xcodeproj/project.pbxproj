@@ -30,6 +30,11 @@
 		D36CCD7115228952003CCAFC /* airplane.m4v in Resources */ = {isa = PBXBuildFile; fileRef = D36CCD7015228952003CCAFC /* airplane.m4v */; };
 		D36CCD7415228ACE003CCAFC /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36CCD7315228ACE003CCAFC /* PlayerView.m */; };
 		D36CCD781522920D003CCAFC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD771522920D003CCAFC /* CoreMedia.framework */; };
+		D3EDFB911524EFC300FD1C43 /* bo_play_pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB901524EFC300FD1C43 /* bo_play_pattern.png */; };
+		D3EDFB911524EFC300FD1C45 /* argyle.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C44 /* argyle.png */; };
+		D3EDFB911524EFC300FD1C47 /* hixs_pattern_evolution.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C46 /* hixs_pattern_evolution.png */; };
+		D3EDFB911524EFC300FD1C49 /* px_by_Gre3g.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C48 /* px_by_Gre3g.png */; };
+		D3EDFB911524EFC300FD1C4B /* batthern.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C4A /* batthern.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		D36CCD7215228ACE003CCAFC /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerView.h; path = Classes/Views/PlayerView.h; sourceTree = "<group>"; };
 		D36CCD7315228ACE003CCAFC /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerView.m; path = Classes/Views/PlayerView.m; sourceTree = "<group>"; };
 		D36CCD771522920D003CCAFC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D3EDFB901524EFC300FD1C43 /* bo_play_pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bo_play_pattern.png; sourceTree = "<group>"; };
+		D3EDFB911524EFC300FD1C44 /* argyle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = argyle.png; sourceTree = "<group>"; };
+		D3EDFB911524EFC300FD1C46 /* hixs_pattern_evolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hixs_pattern_evolution.png; sourceTree = "<group>"; };
+		D3EDFB911524EFC300FD1C48 /* px_by_Gre3g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = px_by_Gre3g.png; sourceTree = "<group>"; };
+		D3EDFB911524EFC300FD1C4A /* batthern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batthern.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +201,11 @@
 		D36CCD6F1522893F003CCAFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3EDFB911524EFC300FD1C4A /* batthern.png */,
+				D3EDFB911524EFC300FD1C48 /* px_by_Gre3g.png */,
+				D3EDFB911524EFC300FD1C46 /* hixs_pattern_evolution.png */,
+				D3EDFB911524EFC300FD1C44 /* argyle.png */,
+				D3EDFB901524EFC300FD1C43 /* bo_play_pattern.png */,
 				D3531CA31523DE3C00E286B8 /* song.mp3 */,
 				D36CCD7015228952003CCAFC /* airplane.m4v */,
 			);
@@ -291,6 +306,11 @@
 				D36CCD7115228952003CCAFC /* airplane.m4v in Resources */,
 				D3531CA41523DE3C00E286B8 /* song.mp3 in Resources */,
 				D3531CA61523EA6500E286B8 /* sample_iPod.m4v in Resources */,
+				D3EDFB911524EFC300FD1C43 /* bo_play_pattern.png in Resources */,
+				D3EDFB911524EFC300FD1C45 /* argyle.png in Resources */,
+				D3EDFB911524EFC300FD1C47 /* hixs_pattern_evolution.png in Resources */,
+				D3EDFB911524EFC300FD1C49 /* px_by_Gre3g.png in Resources */,
+				D3EDFB911524EFC300FD1C4B /* batthern.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

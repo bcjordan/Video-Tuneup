@@ -215,8 +215,10 @@ static const NSString *ItemStatusContext;
                                             else {
                                                 NSLog(@"Completed photo album add");
 
+                                                [exportStatus setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0]];
                                                 [exportStatus setText:@"Exported to Camera Roll"];
-                                                [exportStatus setBackgroundColor:[UIColor colorWithRed:0.0 green:200.0 blue:0.0 alpha:255.0]];
+                                                [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
+//                                                [exportStatus setBackgroundColor:[UIColor colorWithRed:0.0 green:200.0 blue:0.0 alpha:255.0]];
 
 												[self performSelector:@selector(hideCameraRollText) withObject:nil afterDelay:5.0];
                                             }
@@ -225,6 +227,10 @@ static const NSString *ItemStatusContext;
                                     }];
     } else {
         NSLog(@"Video format is not compatible with saved photos album.");
+        [exportStatus setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0]];
+        [exportStatus setText:@"Select a video first."];
+        [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
+        [self performSelector:@selector(hideCameraRollText) withObject:nil afterDelay:5.0];
     }
 }
 
@@ -246,6 +252,9 @@ static const NSString *ItemStatusContext;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]];
+
 
     NSLog(@"viewDidLoad");
 

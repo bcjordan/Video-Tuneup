@@ -87,16 +87,18 @@
 	// Add the song track.
 	AVMutableCompositionTrack *compositionSongTrack = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
 	[compositionSongTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, songTimeRange.duration) ofTrack:[[self.song tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:songTimeRange.start error:nil];
-	
+
 	// Ramp tracks down and up at beginning and end.
 	NSMutableArray *trackMixArray = [NSMutableArray array];
-	CMTime rampDuration = CMTimeMake(1, 2); // half-second ramps
-	for (i = 0; i < [tracksToDuck count]; i++) {
-		AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:[tracksToDuck objectAtIndex:i]];
-		[trackMix setVolumeRampFromStartVolume:1.0 toEndVolume:0.2 timeRange:CMTimeRangeMake(CMTimeSubtract(songTimeRange.start, rampDuration), rampDuration)];
-		[trackMix setVolumeRampFromStartVolume:0.2 toEndVolume:1.0 timeRange:CMTimeRangeMake(CMTimeRangeGetEnd(songTimeRange), rampDuration)];
-		[trackMixArray addObject:trackMix];
-	}
+
+    CMTime rampDuration = CMTimeMake(1, 2); // half-second ramps
+
+    // Ramp song down and up
+    AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:compositionSongTrack];
+    [trackMix setVolumeRampFromStartVolume:0.2 toEndVolume:1.0 timeRange:CMTimeRangeMake(CMTimeSubtract(songTimeRange.start, rampDuration), rampDuration)];
+    [trackMix setVolumeRampFromStartVolume:1.0 toEndVolume:0.2 timeRange:CMTimeRangeMake(CMTimeRangeGetEnd(songTimeRange), rampDuration)];
+    [trackMixArray addObject:trackMix];
+
 	audioMix.inputParameters = trackMixArray;
 }
 
@@ -153,7 +155,7 @@
 #endif // TARGET_OS_EMBEDDED
 		
 		AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:self.composition];
-//		playerItem.audioMix = audioMix;
+		playerItem.audioMix = audioMix;
 		self.playerItem = playerItem;
 	}
 }
@@ -169,7 +171,7 @@
 	AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:self.composition presetName:presetName];
 
 //    session.videoComposition = self.videoComposition;
-//	session.audioMix = self.audioMix;
+	session.audioMix = self.audioMix;
     return session;
 }
 
