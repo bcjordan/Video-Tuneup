@@ -102,10 +102,25 @@
 
 - (void)addVideoTrackToComposition:(AVMutableComposition *)composition
 {
+    AVAssetTrack *videoTrack = nil;
+    if ([[self.video tracksWithMediaType:AVMediaTypeVideo] count] > 0)
+       videoTrack = [[self.video tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+
     AVMutableCompositionTrack *compositionVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
     CMTimeRange videoTimeRange = CMTimeRangeMake(self.videoStartTime, self.video.duration);
 
-//    [compositionVideoTrack insertTimeRange:videoTimeRange ofTrack: self.video atTime:videoTimeRange.start error:nil];
+    [compositionVideoTrack insertTimeRange:videoTimeRange ofTrack:videoTrack atTime:videoTimeRange.start error:nil];
+}
+- (void)addAudioTrackToComposition:(AVMutableComposition *)composition
+{
+    AVAssetTrack *audioTrack = nil;
+    if ([[self.video tracksWithMediaType:AVMediaTypeAudio] count] > 0)
+       audioTrack = [[self.video tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+
+    AVMutableCompositionTrack *compositionAudioTrack = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+    CMTimeRange audioTimeRange = CMTimeRangeMake(self.videoStartTime, self.video.duration);
+
+    [compositionAudioTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:audioTimeRange.start error:nil];
 }
 
 - (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback
@@ -118,6 +133,7 @@
 
     if (self.video) {
         [self addVideoTrackToComposition:composition];
+        [self addAudioTrackToComposition:composition];
     }
 
 	if (self.song) {
@@ -151,9 +167,10 @@
 
 - (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName
 {
-	AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:self.video presetName:presetName];
-//	session.videoComposition = self.composition;
-	session.audioMix = self.audioMix;
+	AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:self.composition presetName:presetName];
+
+//    session.videoComposition = self.videoComposition;
+//	session.audioMix = self.audioMix;
     return session;
 }
 

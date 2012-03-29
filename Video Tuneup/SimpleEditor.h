@@ -56,6 +56,7 @@
     // Assets
 
     AVURLAsset *_video;
+    
 	CMTime _videoStartTime;
     
 	AVURLAsset *_song;
@@ -64,6 +65,7 @@
 	// Composition objects
 
 	AVComposition *_composition;
+	AVComposition *_videoComposition;
 	AVAudioMix *_audioMix;
 	
 	AVPlayerItem *_playerItem; // Reference to player of work-in-progress
@@ -84,7 +86,7 @@
 - (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback;
 
 @property (nonatomic, retain) AVComposition *composition;
-//@property (nonatomic, readonly, retain) AVVideoComposition *videoComposition;
+@property (nonatomic, readwrite, retain) AVVideoComposition *videoComposition;
 @property (nonatomic, readwrite, retain) AVAudioMix *audioMix;
 @property (nonatomic, readwrite, retain) AVPlayerItem *playerItem;
 

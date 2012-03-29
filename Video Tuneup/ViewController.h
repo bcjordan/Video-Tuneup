@@ -15,6 +15,7 @@
 
 @interface ViewController : UIViewController {
     AVURLAsset *asset;
+    AVURLAsset *songAsset;
 }
 
 @property (nonatomic, retain) AVPlayer *player;

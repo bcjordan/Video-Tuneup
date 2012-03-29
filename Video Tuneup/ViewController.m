@@ -32,19 +32,22 @@ static const NSString *ItemStatusContext;
         playButton.enabled = NO;
         NSLog(@"Play button disabled");
     }
-    
 }
 
 - (IBAction)loadAssetFromFile:sender {
-    NSLog(@"Loading asset.");    
+    NSLog(@"Loading asset.");
 
     NSURL *fileURL = [[NSBundle mainBundle]
-                      URLForResource:@"airplane" withExtension:@"m4v"];
-    
+            URLForResource:@"sample_iPod" withExtension:@"m4v"];
+    NSURL *songFileURL = [[NSBundle mainBundle]
+            URLForResource:@"song" withExtension:@"mp3"];
+
     asset = [AVURLAsset URLAssetWithURL:fileURL options:nil];
+    songAsset = [AVURLAsset URLAssetWithURL:songFileURL options:nil];
 
     NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
-    
+    NSLog(@"Song asset duration is %f", CMTimeGetSeconds([songAsset duration]));
+
     NSString *tracksKey = @"tracks";
     
     [asset loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:tracksKey] completionHandler:
@@ -120,6 +123,7 @@ static const NSString *ItemStatusContext;
     // Initialize video editor
     self.editor = [[SimpleEditor alloc] init];    
     self.editor.video = asset;
+    self.editor.song = songAsset;
 
     // Begin export
     [self.editor buildCompositionObjectsForPlayback:NO];
