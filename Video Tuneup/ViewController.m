@@ -23,10 +23,10 @@ static const NSString *ItemStatusContext;
     NSLog(@"syncUI");
 
     if ((player.currentItem != nil) &&
-            ([player.currentItem status] == AVPlayerItemStatusReadyToPlay)) {
+            ([player.currentItem status] == AVPlayerItemStatusReadyToPlay &&
+                    CMTimeCompare([player.currentItem duration], kCMTimeZero) != 0)) {
         playButton.enabled = YES;
         NSLog(@"Enabling play button");
-
     }
     else {
         playButton.enabled = NO;
@@ -122,7 +122,9 @@ static const NSString *ItemStatusContext;
 
 - (IBAction)play:(id)sender {
 
-    if(player.rate == 0 && (player.currentItem != nil) && ([player.currentItem status] == AVPlayerItemStatusReadyToPlay)) { // Paused
+    if(player.rate == 0 && (player.currentItem != nil) &&
+                ([player.currentItem status] == AVPlayerItemStatusReadyToPlay &&
+                        CMTimeCompare([player.currentItem duration], kCMTimeZero) != 0)) { // Paused
         NSLog(@"Playing item");
         [player play];
         [self.videoNavBar setItems:[NSArray
