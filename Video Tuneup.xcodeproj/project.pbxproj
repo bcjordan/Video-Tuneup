@@ -11,6 +11,7 @@
 		D3531CA01523B8DA00E286B8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3531C9F1523B8DA00E286B8 /* QuartzCore.framework */; };
 		D3531CA21523BE2900E286B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3531CA11523BE2900E286B8 /* AssetsLibrary.framework */; };
 		D3531CA41523DE3C00E286B8 /* song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3531CA31523DE3C00E286B8 /* song.mp3 */; };
+		D3531CA61523EA6500E286B8 /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = D3531CA51523EA6400E286B8 /* sample_iPod.m4v */; };
 		D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3515227D06003CCAFC /* UIKit.framework */; };
 		D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3715227D06003CCAFC /* Foundation.framework */; };
 		D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCD3915227D06003CCAFC /* CoreGraphics.framework */; };
@@ -48,6 +49,7 @@
 		D3531C9F1523B8DA00E286B8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3531CA11523BE2900E286B8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D3531CA31523DE3C00E286B8 /* song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song.mp3; sourceTree = "<group>"; };
+		D3531CA51523EA6400E286B8 /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample_iPod.m4v; path = "Video Tuneup/sample_iPod.m4v"; sourceTree = "<group>"; };
 		D36CCD3115227D05003CCAFC /* Video Tuneup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Tuneup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36CCD3515227D06003CCAFC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D36CCD3715227D06003CCAFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,7 @@
 		D36CCD2615227D05003CCAFC = {
 			isa = PBXGroup;
 			children = (
+				D3531CA51523EA6400E286B8 /* sample_iPod.m4v */,
 				D3531CA11523BE2900E286B8 /* AssetsLibrary.framework */,
 				D3531C9F1523B8DA00E286B8 /* QuartzCore.framework */,
 				D3531C9D1523B89200E286B8 /* CoreAudio.framework */,
@@ -287,6 +290,7 @@
 				D36CCD4F15227D06003CCAFC /* ViewController_iPad.xib in Resources */,
 				D36CCD7115228952003CCAFC /* airplane.m4v in Resources */,
 				D3531CA41523DE3C00E286B8 /* song.mp3 in Resources */,
+				D3531CA61523EA6500E286B8 /* sample_iPod.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
