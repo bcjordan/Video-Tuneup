@@ -16,7 +16,7 @@ static const NSString *ItemStatusContext;
 @implementation ViewController
 
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
-mScrubber;
+mScrubber, mediaLibraryButton, mediaLibraryPopover;
 
 #pragma mark - Video playback
 
@@ -398,6 +398,20 @@ mScrubber;
     [player play]; // loop player. If not doing this, set button to pause
 }
 
+#pragma mark - Media Library
+
+- (IBAction)showMediaLibrary:(id)sender {
+    // http://stackoverflow.com/questions/2469523/mpmediapickercontroller-for-selecting-video-files#answer-3212470
+    
+    UIButton *theButton = (UIButton *)sender;
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+    //picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
+    mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:picker];
+    [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+}
 
 #pragma mark - View controller boilerplate
 

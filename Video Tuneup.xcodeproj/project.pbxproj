@@ -461,6 +461,7 @@
 				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
 				INFOPLIST_FILE = "Video Tuneup/Video Tuneup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -472,6 +473,7 @@
 				GCC_PREFIX_HEADER = "Video Tuneup/Video Tuneup-Prefix.pch";
 				INFOPLIST_FILE = "Video Tuneup/Video Tuneup-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

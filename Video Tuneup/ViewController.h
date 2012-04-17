@@ -34,6 +34,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *exportStatus;
 @property (nonatomic, retain) IBOutlet UISlider* mScrubber;
 
+@property (nonatomic, retain) IBOutlet UIButton *mediaLibraryButton;
+@property (nonatomic, retain) UIPopoverController *mediaLibraryPopover;
+
 
 - (void)hideCameraRollText;
 - (IBAction)loadAssetFromFile:sender;
@@ -52,4 +55,6 @@
 - (CMTime)playerItemDuration;
 
 - (void)exportDidFinish:(AVAssetExportSession*)session;
+
+- (IBAction)showMediaLibrary:(id)sender;
 @end
