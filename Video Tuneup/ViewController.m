@@ -42,7 +42,7 @@ static const NSString *ItemStatusContext;
         self.editor.song = songAsset;
 
     // Begin export
-    [self.editor buildCompositionObjectsForPlayback:YES];
+    [self.editor buildNewCompositionForPlayback:YES];
 
     // Initialize editor's player
     self.playerItem = self.editor.playerItem;

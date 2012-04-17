@@ -67,6 +67,7 @@
 
 @synthesize video = _video, videoStartTime = _videoStartTime;
 @synthesize song = _song, songStartTime = _songStartTime;
+@synthesize videoComposition = _videoComposition;
 
 // Composition objects.
 
@@ -75,10 +76,7 @@
 @synthesize playerItem = _playerItem;
 
 - (void)addSongTrackToComposition:(AVMutableComposition *)composition withAudioMix:(AVMutableAudioMix *)audioMix
-{
-	NSInteger i;
-	NSArray *tracksToDuck = [composition tracksWithMediaType:AVMediaTypeAudio]; // before we add the song
-	
+{	
 	// Clip song duration to composition duration.
 	CMTimeRange songTimeRange = CMTimeRangeMake(self.songStartTime, self.song.duration);
 	if (CMTIME_COMPARE_INLINE(CMTimeRangeGetEnd(songTimeRange), >, [composition duration]))
@@ -125,12 +123,17 @@
     [compositionAudioTrack insertTimeRange:audioTimeRange ofTrack:audioTrack atTime:audioTimeRange.start error:nil];
 }
 
-- (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback
+// Combines self.video and self.song (if available) into a video composition
+// If parameter forPlayback is true, also builds player self.playeritem
+- (void)buildNewCompositionForPlayback:(BOOL)forPlayback
 {
 	AVMutableComposition *composition = [[AVMutableComposition alloc]init];
 	AVMutableAudioMix *audioMix = nil;
 
-	CGSize videoSize = [self.video naturalSize];
+    
+    // to suppress warning, get size of specific track instead
+	CGSize videoSize = [[[self.video tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] naturalSize];
+    
 	composition.naturalSize = videoSize;
 
     if (self.video) {

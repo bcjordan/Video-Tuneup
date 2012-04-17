@@ -65,7 +65,7 @@
 	// Composition objects
 
 	AVComposition *_composition;
-	AVComposition *_videoComposition;
+	AVVideoComposition *_videoComposition;
 	AVAudioMix *_audioMix;
 	
 	AVPlayerItem *_playerItem; // Reference to player of work-in-progress
@@ -83,17 +83,12 @@
 // If the composition is being built for playback then a player item is also constructed.
 // All of these objects can be retrieved all of these objects with the accessors below.
 // Calling buildCompositionObjectsForPlayback: will get rid of any previously created composition objects.
-- (void)buildCompositionObjectsForPlayback:(BOOL)forPlayback;
+- (void)buildNewCompositionForPlayback:(BOOL)forPlayback;
 
 @property (nonatomic, retain) AVComposition *composition;
 @property (nonatomic, readwrite, retain) AVVideoComposition *videoComposition;
 @property (nonatomic, readwrite, retain) AVAudioMix *audioMix;
 @property (nonatomic, readwrite, retain) AVPlayerItem *playerItem;
-
-
-- (void)getPlayerItem:(AVPlayerItem**)playerItemOut andSynchronizedLayer:(AVSynchronizedLayer**)synchronizedLayerOut;
-// The synchronized layer contains a layer tree which is synchronized with the provided player item.
-// Inside the layer tree there is a playerLayer along with other layers related to titling.
 
 - (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName;
 
