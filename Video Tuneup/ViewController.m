@@ -15,7 +15,8 @@ static const NSString *ItemStatusContext;
 
 @implementation ViewController
 
-@synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus;
+@synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
+mScrubber;
 
 #pragma mark - Video playback
 
@@ -26,6 +27,7 @@ static const NSString *ItemStatusContext;
             ([player.currentItem status] == AVPlayerItemStatusReadyToPlay &&
                     CMTimeCompare([player.currentItem duration], kCMTimeZero) != 0)) {
         playButton.enabled = YES;
+
         NSLog(@"Enabling play button");
     }
     else {
@@ -35,13 +37,18 @@ static const NSString *ItemStatusContext;
 }
 
 - (void)refreshEditor {
-    // Update assets
+    NSLog(@"Refreshing editor");
+    
+    // Update editor assets
     if (asset)
         self.editor.video = asset;
     if (songAsset)
         self.editor.song = songAsset;
 
-    // Begin export
+    // Remove old player
+    [self.player pause];
+    
+    // Build composition for playback
     [self.editor buildNewCompositionForPlayback:YES];
 
     // Initialize editor's player
@@ -127,18 +134,20 @@ static const NSString *ItemStatusContext;
                         CMTimeCompare([player.currentItem duration], kCMTimeZero) != 0)) { // Paused
         NSLog(@"Playing item");
         [player play];
+        [self initScrubberTimer];
         [self.videoNavBar setItems:[NSArray
                               arrayWithObjects:[self.videoNavBar.items objectAtIndex:0],
                                                    [self.videoNavBar.items objectAtIndex:1],
                                                    [self.videoNavBar.items objectAtIndex:2],
-                              [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(play:)],nil] animated:NO];
+                              [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(play:)],[self.videoNavBar.items objectAtIndex:4],[self.videoNavBar.items objectAtIndex:5],nil] animated:NO];
 
     } else {
         [player pause];
         [self.videoNavBar setItems:[NSArray arrayWithObjects:[self.videoNavBar.items objectAtIndex:0],
                                                             [self.videoNavBar.items objectAtIndex:1],
                                                             [self.videoNavBar.items objectAtIndex:2],
-                                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(play:)],nil] animated:NO];
+                                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(play:)],[self.videoNavBar.items objectAtIndex:4],
+                                    [self.videoNavBar.items objectAtIndex:5], nil] animated:NO];
     }
 }
 
@@ -151,6 +160,154 @@ static const NSString *ItemStatusContext;
 - (IBAction)rewind:(id)sender {
     [player seekToTime:kCMTimeZero];
 }
+
+
+// Handle scrubbing
+// Based on sample code from http://developer.apple.com/library/ios/#samplecode/AVPlayerDemo/Listings/Classes_AVPlayerDemoPlaybackViewController_m.html#//apple_ref/doc/uid/DTS40010101-Classes_AVPlayerDemoPlaybackViewController_m-DontLinkElementID_8
+
+#pragma mark -
+#pragma mark Movie scrubber control
+
+/* ---------------------------------------------------------
+ **  Methods to handle manipulation of the movie scrubber control
+ ** ------------------------------------------------------- */
+
+- (CMTime)playerItemDuration
+{
+    return [playerItem duration];
+}
+
+/* Requests invocation of a given block during media playback to update the movie scrubber control. */
+-(void)initScrubberTimer
+{
+    double interval = .1f;  
+    
+    CMTime playerDuration = [self playerItemDuration];
+    if (CMTIME_IS_INVALID(playerDuration)) 
+    {
+        return;
+    } 
+    double duration = CMTimeGetSeconds(playerDuration);
+    if (isfinite(duration))
+    {
+        CGFloat width = CGRectGetWidth([mScrubber bounds]);
+        interval = 0.5f * duration / width;
+    }
+    
+    /* Update the scrubber during normal playback. */
+    mTimeObserver = [player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(interval, NSEC_PER_SEC) 
+                                                           queue:NULL /* If you pass NULL, the main queue is used. */
+                                                      usingBlock:^(CMTime time) 
+                      {
+                          [self syncScrubber];
+                      }];
+    
+}
+
+/* Set the scrubber based on the player current time. */
+- (void)syncScrubber
+{
+    CMTime playerDuration = [self playerItemDuration];
+    if (CMTIME_IS_INVALID(playerDuration)) 
+    {
+        mScrubber.minimumValue = 0.0;
+        return;
+    } 
+    
+    double duration = CMTimeGetSeconds(playerDuration);
+    if (isfinite(duration))
+    {
+        float minValue = [mScrubber minimumValue];
+        float maxValue = [mScrubber maximumValue];
+        double time = CMTimeGetSeconds([player currentTime]);
+        
+        [mScrubber setValue:(maxValue - minValue) * time / duration + minValue];
+    }
+}
+
+/* The user is dragging the movie controller thumb to scrub through the movie. */
+- (IBAction)beginScrubbing:(id)sender
+{
+    mRestoreAfterScrubbingRate = [player rate];
+    [player setRate:0.f];
+    
+    /* Remove previous timer. */
+//    [self removePlayerTimeObserver];
+}
+
+/* Set the player current time to match the scrubber position. */
+- (IBAction)scrub:(id)sender
+{
+    if ([sender isKindOfClass:[UISlider class]])
+    {
+        UISlider* slider = sender;
+        
+        CMTime playerDuration = [self playerItemDuration];
+        if (CMTIME_IS_INVALID(playerDuration)) {
+            return;
+        } 
+        
+        double duration = CMTimeGetSeconds(playerDuration);
+        if (isfinite(duration))
+        {
+            float minValue = [slider minimumValue];
+            float maxValue = [slider maximumValue];
+            float value = [slider value];
+            
+            double time = duration * (value - minValue) / (maxValue - minValue);
+            
+            [player seekToTime:CMTimeMakeWithSeconds(time, NSEC_PER_SEC)];
+        }
+    }
+}
+
+/* The user has released the movie thumb control to stop scrubbing through the movie. */
+- (IBAction)endScrubbing:(id)sender
+{
+    if (!mTimeObserver)
+    {
+        CMTime playerDuration = [self playerItemDuration];
+        if (CMTIME_IS_INVALID(playerDuration)) 
+        {
+            return;
+        } 
+        
+        double duration = CMTimeGetSeconds(playerDuration);
+        if (isfinite(duration))
+        {
+            CGFloat width = CGRectGetWidth([mScrubber bounds]);
+            double tolerance = 0.5f * duration / width;
+            
+            mTimeObserver = [player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(tolerance, NSEC_PER_SEC) queue:NULL usingBlock:
+                              ^(CMTime time)
+                              {
+                                  [self syncScrubber];
+                              }];
+        }
+    }
+    
+    if (mRestoreAfterScrubbingRate)
+    {
+        [player setRate:mRestoreAfterScrubbingRate];
+        mRestoreAfterScrubbingRate = 0.f;
+    }
+}
+
+- (BOOL)isScrubbing
+{
+    return mRestoreAfterScrubbingRate != 0.f;
+}
+
+-(void)enableScrubber
+{
+    self.mScrubber.enabled = YES;
+}
+
+-(void)disableScrubber
+{
+    self.mScrubber.enabled = NO;    
+}
+
 
 - (IBAction)exportToCameraRoll:(id)sender {
 
@@ -238,6 +395,7 @@ static const NSString *ItemStatusContext;
 
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     [player seekToTime:kCMTimeZero];
+    [player play]; // loop player. If not doing this, set button to pause
 }
 
 

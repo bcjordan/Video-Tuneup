@@ -16,6 +16,11 @@
 @interface ViewController : UIViewController {
     AVURLAsset *asset;
     AVURLAsset *songAsset;
+    
+    // Related to scrubbing
+    float mRestoreAfterScrubbingRate;
+    BOOL seekToZeroBeforePlay;
+    id mTimeObserver;
 }
 
 @property (nonatomic, retain) AVPlayer *player;
@@ -27,6 +32,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *rewindButton;
 @property (nonatomic, retain) IBOutlet UIToolbar *videoNavBar;
 @property (nonatomic, retain) IBOutlet UILabel *exportStatus;
+@property (nonatomic, retain) IBOutlet UISlider* mScrubber;
+
 
 - (void)hideCameraRollText;
 - (IBAction)loadAssetFromFile:sender;
@@ -36,6 +43,13 @@
 - (IBAction)rewind:sender;
 - (IBAction)exportToCameraRoll:sender;
 - (void)syncUI;
+- (void)syncScrubber;
+- (void)beginScrubbing:(id)sender;
+- (void)scrub:(id)sender;
+- (void)endScrubbing:(id)sender;
+- (BOOL)isScrubbing;
+- (void)initScrubberTimer;
+- (CMTime)playerItemDuration;
 
 - (void)exportDidFinish:(AVAssetExportSession*)session;
 @end
