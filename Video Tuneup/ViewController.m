@@ -405,12 +405,21 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     
     UIButton *theButton = (UIButton *)sender;
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    //picker.delegate = self;
+    picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
     mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:picker];
     [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [mediaLibraryPopover dismissPopoverAnimated:YES];
+    
+    NSLog(@"MEDIA URL:");
+    NSLog(@"%@", [info objectForKey:UIImagePickerControllerMediaURL]);
+    NSLog(@"MEDIA REFERENCE URL:");
+    NSLog(@"%@", [info objectForKey:UIImagePickerControllerReferenceURL]);
 }
 
 #pragma mark - View controller boilerplate

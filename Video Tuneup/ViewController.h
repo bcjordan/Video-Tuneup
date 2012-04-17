@@ -13,7 +13,8 @@
 
 @class PlayerView;
 
-@interface ViewController : UIViewController {
+// UIImagePickerControllerDelegate requires that we conform to UINavigationControllerDelegate
+@interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     AVURLAsset *asset;
     AVURLAsset *songAsset;
     
