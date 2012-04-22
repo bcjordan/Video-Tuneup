@@ -408,9 +408,10 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
+    picker.allowsEditing = NO;
+    picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
     mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:picker];
     [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
