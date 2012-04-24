@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PlayerView.h"
 #import "SimpleEditor.h"
+#import "AssetsViewController.h"
 
 // Define this constant for the key-value observation context.
 static const NSString *ItemStatusContext;
@@ -404,22 +405,13 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     // http://stackoverflow.com/questions/2469523/mpmediapickercontroller-for-selecting-video-files#answer-3212470
     
     UIButton *theButton = (UIButton *)sender;
-    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:picker.sourceType];
-    mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:picker];
+    
+    AssetsViewController *avc = [[AssetsViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:avc];
+//    [mediaLibraryPopover setPopoverContentSize:<#(CGSize)#>// Change size of popover so that it doesn't take up the whole height
     [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [mediaLibraryPopover dismissPopoverAnimated:YES];
-    
-    NSLog(@"MEDIA URL:");
-    NSLog(@"%@", [info objectForKey:UIImagePickerControllerMediaURL]);
-    NSLog(@"MEDIA REFERENCE URL:");
-    NSLog(@"%@", [info objectForKey:UIImagePickerControllerReferenceURL]);
 }
 
 #pragma mark - View controller boilerplate

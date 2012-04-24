@@ -10,6 +10,8 @@
 
 @implementation AssetsViewController
 
+@synthesize activity, library;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,6 +34,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    void (^assetEnumerator)(ALAsset *, NSUInteger, BOOL *) = ^(ALAsset *result, NSUInteger index, BOOL *stop) {
+        if(result != NULL) {
+            NSLog(@"See Asset: %@", result);
+            [assets addObject:result];
+        }
+    };
+    void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) =  ^(ALAssetsGroup *group, BOOL *stop) {
+        if(group != nil) {
+            [group setAssetsFilter:[ALAssetsFilter allVideos]];
+            [group enumerateAssetsUsingBlock:assetEnumerator];
+        }
+        [self.tableView reloadData];
+        [self.activity stopAnimating];
+        [self.activity setHidden:YES];
+    };
+    assets = [[NSMutableArray alloc] init];
+    library = [[ALAssetsLibrary alloc] init];
+    [library enumerateGroupsWithTypes:ALAssetsGroupAll
+                           usingBlock:assetGroupEnumerator
+                         failureBlock: ^(NSError *error) {
+                             NSLog(@"Failure");
+                         }];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,16 +102,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [assets count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +119,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    ALAsset *asset = [assets objectAtIndex:indexPath.row];
+    [cell.imageView setImage:[UIImage imageWithCGImage:[asset thumbnail]]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"Test %d", indexPath.row+1]];
     
     return cell;
 }

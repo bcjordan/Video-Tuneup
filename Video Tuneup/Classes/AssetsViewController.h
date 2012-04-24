@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface AssetsViewController : UITableViewController
+@interface AssetsViewController : UITableViewController {
+    NSMutableArray *assets;
+}
+
+@property (nonatomic, retain) UIActivityIndicatorView *activity;
+@property (nonatomic, retain) ALAssetsLibrary *library;
 
 @end
