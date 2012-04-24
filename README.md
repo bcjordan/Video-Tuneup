@@ -92,3 +92,8 @@ Maybe we can build a web-based version and api…
 
 ## Pizzaz
 * Squarecam - live camera, face detection and drawing https://developer.apple.com/library/ios/#samplecode/SquareCam/Introduction/Intro.html#//apple_ref/doc/uid/DTS40011190
+
+
+## AssetLibrary
+http://www.icodeblog.com/2010/07/08/asset-libraries-and-blocks-in-ios-4/
+http://www.youtube.com/watch?v=-5kAPVGYMf4
