@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D19C74771547289A006E4122 /* AssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19C74761547289A006E4122 /* AssetsViewController.m */; };
 		D3531C9C1523B7BB00E286B8 /* SimpleEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3531C9B1523B7BB00E286B8 /* SimpleEditor.m */; };
 		D3531CA01523B8DA00E286B8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3531C9F1523B8DA00E286B8 /* QuartzCore.framework */; };
 		D3531CA21523BE2900E286B8 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3531CA11523BE2900E286B8 /* AssetsLibrary.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D19C74751547289A006E4122 /* AssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetsViewController.h; path = Classes/AssetsViewController.h; sourceTree = "<group>"; };
+		D19C74761547289A006E4122 /* AssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetsViewController.m; path = Classes/AssetsViewController.m; sourceTree = "<group>"; };
 		D3531C9A1523B7BB00E286B8 /* SimpleEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleEditor.h; sourceTree = "<group>"; };
 		D3531C9B1523B7BB00E286B8 /* SimpleEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleEditor.m; sourceTree = "<group>"; };
 		D3531C9D1523B89200E286B8 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -226,6 +229,8 @@
 			children = (
 				D36CCD4715227D06003CCAFC /* ViewController.h */,
 				D36CCD4815227D06003CCAFC /* ViewController.m */,
+				D19C74751547289A006E4122 /* AssetsViewController.h */,
+				D19C74761547289A006E4122 /* AssetsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				D36CCD4915227D06003CCAFC /* ViewController.m in Sources */,
 				D36CCD7415228ACE003CCAFC /* PlayerView.m in Sources */,
 				D3531C9C1523B7BB00E286B8 /* SimpleEditor.m in Sources */,
+				D19C74771547289A006E4122 /* AssetsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssetsViewController : UIViewController
+@interface AssetsViewController : UITableViewController
 
 @end
