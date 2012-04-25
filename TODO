@@ -1,0 +1,9 @@
+# 2012.04.24
+- Music Library
+- Python web service
+    * input(movie_audio, song, params{cowbell, etc.})
+    * Write new song file with modifications
+- Networking on iOS
+    1. Send a file
+    2. We respond with the fixed-up file
+
