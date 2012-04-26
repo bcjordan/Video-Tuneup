@@ -12,12 +12,12 @@
 
 @implementation WebserviceCommunicator
 
-@synthesize fileHandle;
+@synthesize fileHandle, songPath;
 
 - (id)init {
     self = [super init];
     if (self) {
-        NSString *songPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"mixed_song.mp3"];
+        songPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"mixed_song.mp3"];
         [[NSFileManager defaultManager] createFileAtPath:songPath contents:nil attributes:nil];
         fileHandle = [NSFileHandle fileHandleForWritingAtPath:songPath];
     }
@@ -56,6 +56,12 @@
     (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+
+- (void)setParentController:(ViewController *)viewController {
+    _viewController = viewController;
+}
+
+
 #pragma mark NSURLConnection delegate methods
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -71,8 +77,13 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	NSLog(@"Song send finished loading.");
-    
+
     [fileHandle closeFile];
+
+    // This is happening before file is completely sent back. Need to change timeout.
+
+    NSLog(@"Received song path is %@", songPath);
+//    [_viewController loadAudioFromFile:[NSURL URLWithString:songPath]];
 }
 
 @end

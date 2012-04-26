@@ -64,5 +64,5 @@
 
 - (IBAction)showMediaLibrary:(id)sender;
 
-- (IBAction)derpSendPostRequest:(id)sender;
+- (IBAction)sendMixRequest:(id)sender;
 @end

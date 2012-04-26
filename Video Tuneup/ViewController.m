@@ -146,7 +146,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
 
         NSLog(@"Got media item");
 //        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
-//        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
+        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
 //        NSLog(@"%@", url);
 
         [self loadAudioFromFile:url];
@@ -462,11 +462,12 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-#pragma mark DEEEERRRRRRRRRRRRPPPPPPPPPPPPP
+#pragma mark - Networking
 
-- (IBAction)derpSendPostRequest:(id)sender {
+- (IBAction)sendMixRequest:(id)sender {
     WebserviceCommunicator *com = [[WebserviceCommunicator alloc] init];
     NSURL *songFileURL = [[NSBundle mainBundle] URLForResource:@"song" withExtension:@"mp3"];
+    [com setParentController:self];
     [com mixMusic:songFileURL];
 }
 

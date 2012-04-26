@@ -499,7 +499,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">derpSendPostRequest:</string>
+						<string key="label">sendMixRequest:</string>
 						<reference key="source" ref="267035392"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>

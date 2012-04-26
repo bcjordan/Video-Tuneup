@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ViewController.h"
 
-@interface WebserviceCommunicator : NSObject <NSURLConnectionDelegate>
+@interface WebserviceCommunicator : NSObject <NSURLConnectionDelegate>{
+    ViewController* _viewController;
+}
 
 @property (nonatomic, retain) NSFileHandle *fileHandle;
+@property (nonatomic, retain) NSString *songPath;
 
 -(void)mixMusic:(NSURL *)file;
+-(void)setParentController:(ViewController *)viewController;
 
 @end
