@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WebserviceCommunicator : NSObject
+@interface WebserviceCommunicator : NSObject <NSURLConnectionDelegate>
 
 -(void)mixMusic:(NSURL *)file;
 

@@ -8,10 +8,54 @@
 
 #import "WebserviceCommunicator.h"
 
+#define BASEPATH (@"http://localhost:4567")
+
 @implementation WebserviceCommunicator
 
 -(void)mixMusic:(NSURL *)file {
+    NSString *uploadFileName = [file lastPathComponent];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/blend/%@", BASEPATH, uploadFileName]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:130.0]; // BASEPATH/blend/:filename
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPShouldHandleCookies:NO];
+    NSString *boundary = @"--x-x-x-x-";
+    [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary] forHTTPHeaderField:@"Content-Type"];
     
+    NSData *songData = [NSData dataWithContentsOfURL:file];
+    NSMutableData *requestData = [[NSMutableData alloc] init];
+    //[requestData appendData:[NSData dataWithBytes:[song length:<#(NSUInteger)#>
+    
+//  for (NSString *paramName in params) ...
+//	[body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//	[body appendData:[@"Content-Disposition: form-data; name=\"photo-description\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//	[body appendData:[@"testing 123" dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+	
+    [requestData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[requestData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", @"data", uploadFileName] dataUsingEncoding:NSUTF8StringEncoding]];
+	[requestData appendData:[@"Content-Type: audio/mpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[requestData appendData:songData];
+    [requestData appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [requestData appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+	[request setHTTPBody:requestData];
+    
+    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+#pragma mark NSURLConnection delegate methods
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	NSLog(@"Got response data");
+	NSLog(@"Data was: %@", [NSString stringWithUTF8String:[data bytes]]);
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	NSLog(@"Song send failed");
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	NSLog(@"Song send finished loading.");
 }
 
 @end
