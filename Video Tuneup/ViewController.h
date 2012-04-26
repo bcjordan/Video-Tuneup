@@ -39,6 +39,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *mediaLibraryButton;
 @property (nonatomic, retain) UIPopoverController *mediaLibraryPopover;
 
+@property (nonatomic, retain) IBOutlet UIButton *derpSendPostRequestButton;
+
 
 - (void)hideCameraRollText;
 - (IBAction)loadAssetFromFile:sender;
@@ -59,4 +61,6 @@
 - (void)exportDidFinish:(AVAssetExportSession*)session;
 
 - (IBAction)showMediaLibrary:(id)sender;
+
+- (IBAction)derpSendPostRequest:(id)sender;
 @end

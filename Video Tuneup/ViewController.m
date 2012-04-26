@@ -11,6 +11,8 @@
 #import "SimpleEditor.h"
 #import "AssetsViewController.h"
 
+#import "WebserviceCommunicator.h"
+
 
 // Define this constant for the key-value observation context.
 static const NSString *ItemStatusContext;
@@ -19,6 +21,8 @@ static const NSString *ItemStatusContext;
 
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
 mScrubber, mediaLibraryButton, mediaLibraryPopover;
+
+@synthesize derpSendPostRequestButton;
 
 #pragma mark - Video playback
 
@@ -445,6 +449,14 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:avc];
 //    [mediaLibraryPopover setPopoverContentSize:<#(CGSize)#>// Change size of popover so that it doesn't take up the whole height
     [self.mediaLibraryPopover presentPopoverFromRect:[theButton bounds] inView:theButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+#pragma mark DEEEERRRRRRRRRRRRPPPPPPPPPPPPP
+
+- (IBAction)derpSendPostRequest:(id)sender {
+    WebserviceCommunicator *com = [[WebserviceCommunicator alloc] init];
+    NSURL *songFileURL = [[NSBundle mainBundle] URLForResource:@"song" withExtension:@"mp3"];
+    [com mixMusic:songFileURL];
 }
 
 #pragma mark - View controller boilerplate
