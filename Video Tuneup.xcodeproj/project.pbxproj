@@ -36,6 +36,7 @@
 		D3EDFB911524EFC300FD1C47 /* hixs_pattern_evolution.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C46 /* hixs_pattern_evolution.png */; };
 		D3EDFB911524EFC300FD1C49 /* px_by_Gre3g.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C48 /* px_by_Gre3g.png */; };
 		D3EDFB911524EFC300FD1C4B /* batthern.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C4A /* batthern.png */; };
+		D3EDFB911524EFC300FD1C4D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDFB911524EFC300FD1C4C /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		D3EDFB911524EFC300FD1C46 /* hixs_pattern_evolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hixs_pattern_evolution.png; sourceTree = "<group>"; };
 		D3EDFB911524EFC300FD1C48 /* px_by_Gre3g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = px_by_Gre3g.png; sourceTree = "<group>"; };
 		D3EDFB911524EFC300FD1C4A /* batthern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batthern.png; sourceTree = "<group>"; };
+		D3EDFB911524EFC300FD1C4C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				D36CCD3615227D06003CCAFC /* UIKit.framework in Frameworks */,
 				D36CCD3815227D06003CCAFC /* Foundation.framework in Frameworks */,
 				D36CCD3A15227D06003CCAFC /* CoreGraphics.framework in Frameworks */,
+				D3EDFB911524EFC300FD1C4D /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +149,7 @@
 		D36CCD3415227D06003CCAFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3EDFB911524EFC300FD1C4C /* MediaPlayer.framework */,
 				D36CCD3515227D06003CCAFC /* UIKit.framework */,
 				D36CCD3715227D06003CCAFC /* Foundation.framework */,
 				D36CCD3915227D06003CCAFC /* CoreGraphics.framework */,

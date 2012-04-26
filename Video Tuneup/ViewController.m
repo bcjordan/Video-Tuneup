@@ -11,6 +11,7 @@
 #import "SimpleEditor.h"
 #import "AssetsViewController.h"
 
+
 // Define this constant for the key-value observation context.
 static const NSString *ItemStatusContext;
 
@@ -110,6 +111,34 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
 
     NSLog(@"Refreshing editor");
     [self refreshEditor];
+}
+
+- (IBAction)showMediaPicker:(id)sender
+{
+    MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+
+    mediaPicker.delegate = self;
+    mediaPicker.allowsPickingMultipleItems = NO;
+    mediaPicker.prompt = @"Select songs to play";
+
+    [self presentModalViewController:mediaPicker animated:YES];
+//    [mediaPicker release];
+}
+
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+    if (mediaItemCollection) {
+
+        NSLog(@"Got media item");
+//        [musicPlayer setQueueWithItemCollection: mediaItemCollection];
+//        [musicPlayer play];
+    } else {NSLog(@"Didn't get media item!");}
+
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) mediaPickerDidCancel: (MPMediaPickerController *) mediaPicker
+{
+    [self dismissModalViewControllerAnimated: YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object

@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SimpleEditor.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @class PlayerView;
 

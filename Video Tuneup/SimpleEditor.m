@@ -151,11 +151,11 @@
 	self.audioMix = audioMix;
 
 	if (forPlayback) {
-#if TARGET_OS_EMBEDDED
-		// Render high-def movies at half scale for real-time playback (device-only).
-		if (videoSize.width > 640)
-			composition.renderScale = 0.5;
-#endif // TARGET_OS_EMBEDDED
+//#if TARGET_OS_EMBEDDED
+//		// Render high-def movies at half scale for real-time playback (device-only).
+//		if (videoSize.width > 640)
+//			composition.renderScale = 0.5;
+//#endif // TARGET_OS_EMBEDDED
 		
 		AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:self.composition];
 		playerItem.audioMix = audioMix;
