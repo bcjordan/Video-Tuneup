@@ -12,6 +12,18 @@
 
 @implementation WebserviceCommunicator
 
+@synthesize fileHandle;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        NSString *songPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"mixed_song.mp3"];
+        [[NSFileManager defaultManager] createFileAtPath:songPath contents:nil attributes:nil];
+        fileHandle = [NSFileHandle fileHandleForWritingAtPath:songPath];
+    }
+    return self;
+}
+
 -(void)mixMusic:(NSURL *)file {
     NSString *uploadFileName = [file lastPathComponent];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/blend/%@", BASEPATH, uploadFileName]] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:130.0]; // BASEPATH/blend/:filename
@@ -22,8 +34,9 @@
     
     NSData *songData = [NSData dataWithContentsOfURL:file];
     NSMutableData *requestData = [[NSMutableData alloc] init];
-    //[requestData appendData:[NSData dataWithBytes:[song length:<#(NSUInteger)#>
     
+//  To send extra params:
+//
 //  for (NSString *paramName in params) ...
 //	[body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
 //	[body appendData:[@"Content-Disposition: form-data; name=\"photo-description\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
@@ -47,7 +60,9 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	NSLog(@"Got response data");
-	NSLog(@"Data was: %@", [NSString stringWithUTF8String:[data bytes]]);
+    
+    [fileHandle seekToEndOfFile];
+    [fileHandle writeData:data];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -56,6 +71,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	NSLog(@"Song send finished loading.");
+    
+    [fileHandle closeFile];
 }
 
 @end

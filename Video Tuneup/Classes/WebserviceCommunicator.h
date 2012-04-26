@@ -10,6 +10,8 @@
 
 @interface WebserviceCommunicator : NSObject <NSURLConnectionDelegate>
 
+@property (nonatomic, retain) NSFileHandle *fileHandle;
+
 -(void)mixMusic:(NSURL *)file;
 
 @end
