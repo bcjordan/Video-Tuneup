@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
+		<string key="IBDocument.SystemVersion">11D50d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1038.36</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">933</string>
@@ -41,17 +41,17 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="1049445720">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">319</int>
-						<string key="NSFrame">{{87, 44}, {293, 127}}</string>
+						<int key="NSvFlags">293</int>
+						<string key="NSFrame">{{95.5, 162}, {143, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="761978491"/>
+						<reference key="NSNextKeyView" ref="267035392"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Choose Video</string>
+						<string key="IBUINormalTitle">Demo Video</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="804940373">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -64,20 +64,20 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="395720110">
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">2</int>
-							<double key="pointSize">39</double>
+							<double key="pointSize">16</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="483391128">
+						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">39</double>
+							<double key="NSSize">16</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
 					<object class="IBUIButton" id="761978491">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">319</int>
-						<string key="NSFrame">{{388, 44}, {293, 127}}</string>
+						<int key="NSvFlags">293</int>
+						<string key="NSFrame">{{526, 162}, {143, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1061865793"/>
@@ -86,19 +86,26 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Choose Song</string>
+						<string key="IBUINormalTitle">Demo Song</string>
 						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
-						<reference key="IBUIFontDescription" ref="395720110"/>
-						<reference key="IBUIFont" ref="483391128"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<double key="pointSize">17</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">17</double>
+							<int key="NSfFlags">16</int>
+						</object>
 					</object>
 					<object class="IBUIView" id="1061865793">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">287</int>
+						<int key="NSvFlags">279</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIToolbar" id="812339394">
 								<reference key="NSNextResponder" ref="1061865793"/>
@@ -110,7 +117,7 @@
 										<string key="NSFrame">{{93, 11}, {564, 23}}</string>
 										<reference key="NSSuperview" ref="812339394"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="938661883"/>
+										<reference key="NSNextKeyView" ref="425377558"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
@@ -181,7 +188,7 @@
 						<string key="NSFrame">{{244, 886}, {255, 73}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="27096655"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -234,17 +241,68 @@
 					</object>
 					<object class="IBUIButton" id="938661883">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{54, 906}, {75, 37}}</string>
+						<int key="NSvFlags">293</int>
+						<string key="NSFrame">{{99, 27}, {281, 127}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="425377558"/>
+						<reference key="NSNextKeyView" ref="27096655"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Library</string>
+						<string key="IBUINormalTitle">Pick a Video</string>
+						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="395720110">
+							<int key="type">2</int>
+							<double key="pointSize">39</double>
+						</object>
+						<object class="NSFont" key="IBUIFont" id="250232343">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">39</double>
+							<int key="NSfFlags">16</int>
+						</object>
+					</object>
+					<object class="IBUIButton" id="27096655">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">293</int>
+						<string key="NSFrame">{{388, 27}, {281, 127}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1049445720"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Pick a Song</string>
+						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
+						<reference key="IBUIFontDescription" ref="395720110"/>
+						<reference key="IBUIFont" ref="250232343"/>
+					</object>
+					<object class="IBUIButton" id="267035392">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">293</int>
+						<string key="NSFrame">{{313, 162}, {143, 37}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="761978491"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Tuneup Online</string>
 						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -255,61 +313,17 @@
 							<int key="type">2</int>
 							<double key="pointSize">15</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="361109798">
+						<object class="NSFont" key="IBUIFont" id="414813173">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIButton" id="27096655">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{580, 906}, {75, 37}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="267035392"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Music</string>
-						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
-						<reference key="IBUIFontDescription" ref="1067550929"/>
-						<reference key="IBUIFont" ref="361109798"/>
-					</object>
-					<object class="IBUIButton" id="267035392">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{7, 960}, {262, 37}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">DerpyButtonToSendPostRequest</string>
-						<reference key="IBUIHighlightedTitleColor" ref="804940373"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
-						<reference key="IBUIFontDescription" ref="1067550929"/>
-						<reference key="IBUIFont" ref="361109798"/>
-					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="1049445720"/>
+				<reference key="NSNextKeyView" ref="938661883"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -339,7 +353,7 @@
 				</object>
 				<reference key="IBUINormalTitleShadowColor" ref="752673392"/>
 				<reference key="IBUIFontDescription" ref="1067550929"/>
-				<reference key="IBUIFont" ref="361109798"/>
+				<reference key="IBUIFont" ref="414813173"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -533,11 +547,11 @@
 							<reference ref="1061865793"/>
 							<reference ref="806269495"/>
 							<reference ref="425377558"/>
-							<reference ref="1049445720"/>
+							<reference ref="267035392"/>
 							<reference ref="761978491"/>
 							<reference ref="938661883"/>
 							<reference ref="27096655"/>
-							<reference ref="267035392"/>
+							<reference ref="1049445720"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -687,30 +701,36 @@
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="derpSendPostRequest:">id</string>
 						<string key="exportToCameraRoll:">id</string>
-						<string key="loadAssetFromFile:">id</string>
-						<string key="loadAudioFromFile:">id</string>
+						<string key="loadAssetFromFile:">NSURL</string>
+						<string key="loadAudioFromFile:">NSURL</string>
+						<string key="loadDefaultAssetFromFile:">id</string>
+						<string key="loadDefaultAudioFromFile:">id</string>
 						<string key="pause:">id</string>
 						<string key="play:">id</string>
 						<string key="rewind:">id</string>
+						<string key="sendMixRequest:">id</string>
 						<string key="showMediaLibrary:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="derpSendPostRequest:">
-							<string key="name">derpSendPostRequest:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="exportToCameraRoll:">
 							<string key="name">exportToCameraRoll:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="loadAssetFromFile:">
 							<string key="name">loadAssetFromFile:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">NSURL</string>
 						</object>
 						<object class="IBActionInfo" key="loadAudioFromFile:">
 							<string key="name">loadAudioFromFile:</string>
+							<string key="candidateClassName">NSURL</string>
+						</object>
+						<object class="IBActionInfo" key="loadDefaultAssetFromFile:">
+							<string key="name">loadDefaultAssetFromFile:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="loadDefaultAudioFromFile:">
+							<string key="name">loadDefaultAudioFromFile:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="pause:">
@@ -723,6 +743,10 @@
 						</object>
 						<object class="IBActionInfo" key="rewind:">
 							<string key="name">rewind:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="sendMixRequest:">
+							<string key="name">sendMixRequest:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showMediaLibrary:">
