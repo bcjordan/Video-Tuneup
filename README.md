@@ -95,5 +95,11 @@ Maybe we can build a web-based version and api…
 
 
 ## AssetLibrary
-http://www.icodeblog.com/2010/07/08/asset-libraries-and-blocks-in-ios-4/
-http://www.youtube.com/watch?v=-5kAPVGYMf4
+* http://www.icodeblog.com/2010/07/08/asset-libraries-and-blocks-in-ios-4/
+* http://www.youtube.com/watch?v=-5kAPVGYMf4
+
+## Multipart NSMutableURLRequest
+* http://stackoverflow.com/questions/8042360/nsdata-and-uploading-images-via-post-in-ios
+* http://zcentric.com/2008/08/29/post-a-uiimage-to-the-web/
+* http://stackoverflow.com/questions/10051150/multiform-data-send-to-server-using-iphone-sdk
+* http://www.iphonedevsdk.com/forum/iphone-sdk-development/14919-how-upload-download-http-server.html
