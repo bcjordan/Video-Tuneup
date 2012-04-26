@@ -108,15 +108,22 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     [self loadAssetFromFile:fileURL];
 }
 
-- (IBAction)loadAudioFromFile:(id)sender {
+- (IBAction)loadDefaultAudioFromFile:(id)sender {
     NSURL *songFileURL = [[NSBundle mainBundle]
             URLForResource:@"song" withExtension:@"mp3"];
+    [self loadAudioFromFile:songFileURL];
+}
+
+- (IBAction)loadAudioFromFile:(NSURL *)songFileURL {
     songAsset = [AVURLAsset URLAssetWithURL:songFileURL options:nil];
     NSLog(@"Song asset duration is %f", CMTimeGetSeconds([songAsset duration]));
 
     NSLog(@"Refreshing editor");
     [self refreshEditor];
 }
+
+#pragma mark -
+#pragma mark Audio picker
 
 - (IBAction)showMediaPicker:(id)sender
 {
@@ -134,13 +141,11 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     if (mediaItemCollection) {
 
         NSLog(@"Got media item");
-//        [musicPlayer setQueueWithItemCollection: mediaItemCollection];
-//        [musicPlayer play];
-        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
-        
-        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
-        
-        NSLog(@"%@", url);
+//        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
+//        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
+//        NSLog(@"%@", url);
+
+        [self loadAudioFromFile:url];
     
     } else {NSLog(@"Didn't get media item!");}
 
