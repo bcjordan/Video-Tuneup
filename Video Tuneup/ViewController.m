@@ -115,7 +115,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
 
 - (IBAction)showMediaPicker:(id)sender
 {
-    MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+    MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeMusic];
 
     mediaPicker.delegate = self;
     mediaPicker.allowsPickingMultipleItems = NO;
@@ -131,6 +131,12 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
         NSLog(@"Got media item");
 //        [musicPlayer setQueueWithItemCollection: mediaItemCollection];
 //        [musicPlayer play];
+        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
+        
+        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
+        
+        NSLog(@"%@", url);
+    
     } else {NSLog(@"Didn't get media item!");}
 
     [self dismissModalViewControllerAnimated:YES];
