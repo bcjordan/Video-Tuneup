@@ -372,7 +372,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">loadAssetFromFile:</string>
+						<string key="label">loadDefaultAssetFromFile:</string>
 						<reference key="source" ref="1049445720"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>

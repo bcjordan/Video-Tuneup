@@ -41,7 +41,8 @@
 
 
 - (void)hideCameraRollText;
-- (IBAction)loadAssetFromFile:sender;
+- (IBAction)loadDefaultAssetFromFile:sender;
+- (IBAction)loadAssetFromFile:(NSURL *)fileURL;
 - (IBAction)loadAudioFromFile:sender;
 - (IBAction)play:sender;
 - (IBAction)pause:sender;
