@@ -120,8 +120,12 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
 
 - (IBAction)loadAudioFromFile:(NSURL *)songFileURL {
     songAsset = [AVURLAsset URLAssetWithURL:songFileURL options:nil];
+    
     NSLog(@"Song asset duration is %f", CMTimeGetSeconds([songAsset duration]));
-
+    if(CMTimeGetSeconds([songAsset duration]) == 0){
+        [internetRequestButton setTitle:@"Internet Tune-up (failed)" forState:UIControlStateNormal];
+        return;
+    }
     NSLog(@"Refreshing editor");
     [self refreshEditor];
 }

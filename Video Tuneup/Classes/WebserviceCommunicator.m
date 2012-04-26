@@ -83,13 +83,13 @@
 
     [fileHandle closeFile];
     if(_viewController != nil) {
-        [_viewController.internetRequestButton setTitle:@"Internet Tune-up (failed)" forState:UIControlStateNormal];
+        [_viewController.internetRequestButton setTitle:@"Internet Tune-up (completed)" forState:UIControlStateNormal];
     }
     
     // This is happening before file is completely sent back. Need to change timeout.
 
     NSLog(@"Received song path is %@", songPath);
-//    [_viewController loadAudioFromFile:[NSURL URLWithString:songPath]];
+    [_viewController loadAudioFromFile:[NSURL fileURLWithPath:songPath]];
 }
 
 @end
