@@ -7,6 +7,7 @@
 //
 
 #import "AssetsViewController.h"
+#import "ViewController.h"
 
 @implementation AssetsViewController
 
@@ -165,10 +166,29 @@
 }
 */
 
+#pragma mark - Reference back to media player
+
+- (void)setParentViewController:(ViewController *)viewController {
+    _viewController = viewController;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    NSLog(@"Clicked on a row!!");
+    ALAsset *asset = [assets objectAtIndex:indexPath.row];
+    NSDictionary *assetURLs = [asset valueForProperty:ALAssetPropertyURLs];
+    for (NSString *assetURLKey in assetURLs) {
+        if (_viewController != nil) {
+            NSLog(@"AssetURL %@", [assetURLs valueForKey:assetURLKey]);
+            [_viewController loadAssetFromFile:[assetURLs valueForKey:assetURLKey]];
+        }
+    }
+
+    // TODO: hide this panel
+
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

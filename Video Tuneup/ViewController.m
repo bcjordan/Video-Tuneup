@@ -71,51 +71,63 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     [self play:nil];
 }
 
-- (IBAction)loadAssetFromFile:sender {
+- (void)loadAssetFromFile:(NSURL*)fileURL {
+    asset = [AVURLAsset URLAssetWithURL:fileURL options:nil];
+
+        NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
+
+        NSString *tracksKey = @"tracks";
+
+        [asset loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:tracksKey] completionHandler:
+                ^{
+                    NSLog(@"Handler block reached");
+                    // Completion handler block.
+                    dispatch_async(dispatch_get_main_queue(),
+                            ^{
+                                NSError *error = nil;
+                                AVKeyValueStatus status = [asset statusOfValueForKey:tracksKey error:&error];
+
+                                if (status == AVKeyValueStatusLoaded) {
+                                    [self refreshEditor];
+
+                                    // File has loaded into player
+                                    NSLog(@"File loaded!");
+                                    NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
+
+                                }
+                                else {
+                                    // You should deal with the error appropriately.
+                                    NSLog(@"The asset's tracks were not loaded:\n%@", [error localizedDescription]);
+                                }
+                            });
+                }];
+}
+
+- (IBAction)loadDefaultAssetFromFile:sender {
     NSLog(@"Loading asset.");
 
     NSURL *fileURL = [[NSBundle mainBundle]
             URLForResource:@"sample_iPod" withExtension:@"m4v"];
-    asset = [AVURLAsset URLAssetWithURL:fileURL options:nil];
 
-    NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
-
-    NSString *tracksKey = @"tracks";
-
-    [asset loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:tracksKey] completionHandler:
-            ^{
-                NSLog(@"Handler block reached");
-                // Completion handler block.
-                dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            NSError *error = nil;
-                            AVKeyValueStatus status = [asset statusOfValueForKey:tracksKey error:&error];
-
-                            if (status == AVKeyValueStatusLoaded) {
-                                [self refreshEditor];
-
-                                // File has loaded into player
-                                NSLog(@"File loaded!");
-                                NSLog(@"Asset duration is %f", CMTimeGetSeconds([asset duration]));
-
-                            }
-                            else {
-                                // You should deal with the error appropriately.
-                                NSLog(@"The asset's tracks were not loaded:\n%@", [error localizedDescription]);
-                            }
-                        });
-            }];
+    [self loadAssetFromFile:fileURL];
 }
 
-- (IBAction)loadAudioFromFile:(id)sender {
+- (IBAction)loadDefaultAudioFromFile:(id)sender {
     NSURL *songFileURL = [[NSBundle mainBundle]
             URLForResource:@"song" withExtension:@"mp3"];
+    [self loadAudioFromFile:songFileURL];
+}
+
+- (IBAction)loadAudioFromFile:(NSURL *)songFileURL {
     songAsset = [AVURLAsset URLAssetWithURL:songFileURL options:nil];
     NSLog(@"Song asset duration is %f", CMTimeGetSeconds([songAsset duration]));
 
     NSLog(@"Refreshing editor");
     [self refreshEditor];
 }
+
+#pragma mark -
+#pragma mark Audio picker
 
 - (IBAction)showMediaPicker:(id)sender
 {
@@ -133,13 +145,11 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     if (mediaItemCollection) {
 
         NSLog(@"Got media item");
-//        [musicPlayer setQueueWithItemCollection: mediaItemCollection];
-//        [musicPlayer play];
-        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
-        
-        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
-        
-        NSLog(@"%@", url);
+//        NSLog(@"%@",[[[mediaItemCollection items] objectAtIndex:0]valueForKey:MPMediaItemPropertyTitle]);
+//        NSURL *url = [[[mediaItemCollection items] objectAtIndex:0] valueForProperty:MPMediaItemPropertyAssetURL];
+//        NSLog(@"%@", url);
+
+        [self loadAudioFromFile:url];
     
     } else {NSLog(@"Didn't get media item!");}
 
@@ -445,6 +455,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
     
     UIButton *theButton = (UIButton *)sender;
     AssetsViewController *avc = [[AssetsViewController alloc] initWithStyle:UITableViewStylePlain];
+    [avc setParentViewController:self];
     
     mediaLibraryPopover = [[UIPopoverController alloc] initWithContentViewController:avc];
 //    [mediaLibraryPopover setPopoverContentSize:<#(CGSize)#>// Change size of popover so that it doesn't take up the whole height
