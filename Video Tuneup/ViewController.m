@@ -20,7 +20,7 @@ static const NSString *ItemStatusContext;
 @implementation ViewController
 
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
-mScrubber, mediaLibraryButton, mediaLibraryPopover;
+mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
 
 @synthesize derpSendPostRequestButton;
 
@@ -132,6 +132,8 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
 - (IBAction)showMediaPicker:(id)sender
 {
     MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeMusic];
+
+    mediaPicker.wantsFullScreenLayout = NO;
 
     mediaPicker.delegate = self;
     mediaPicker.allowsPickingMultipleItems = NO;
@@ -361,6 +363,8 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
 
 - (IBAction)exportToCameraRoll:(id)sender {
 
+    [exportButton setTitle:@"Exporting..." forState:UIControlStateNormal];
+    [exportButton setEnabled:NO];
     NSLog(@"Editing...");
 
     NSLog(@"Put clips in. Build.");
@@ -418,10 +422,14 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover;
                                                 [alertView show];
 //												[alertView release];
                                                 [exportStatus setText:@"Camera Roll Export Error"];
+                                                [exportButton setEnabled:YES];
                                             }
                                             else {
                                                 NSLog(@"Completed photo album add");
-
+                                                
+                                                [exportButton setTitle:@"Share to Camera Roll" forState:UIControlStateNormal];
+                                                [exportButton setEnabled:YES];
+                                                
                                                 [exportStatus setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0]];
                                                 [exportStatus setText:@"Exported to Camera Roll"];
                                                 [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
