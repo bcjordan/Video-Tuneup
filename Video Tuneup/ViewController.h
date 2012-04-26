@@ -15,7 +15,7 @@
 @class PlayerView;
 
 // UIImagePickerControllerDelegate requires that we conform to UINavigationControllerDelegate
-@interface ViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface ViewController : UIViewController <MPMediaPickerControllerDelegate> {
     AVURLAsset *asset;
     AVURLAsset *songAsset;
     
