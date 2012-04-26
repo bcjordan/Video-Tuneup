@@ -22,7 +22,7 @@ static const NSString *ItemStatusContext;
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
 mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
 
-@synthesize derpSendPostRequestButton;
+@synthesize internetRequestButton;
 
 #pragma mark - Video playback
 
@@ -477,6 +477,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
     NSURL *songFileURL = [[NSBundle mainBundle] URLForResource:@"song" withExtension:@"mp3"];
     [com setParentController:self];
     [com mixMusic:songFileURL];
+    [internetRequestButton setTitle:@"Attempting..." forState:UIControlStateNormal];
 }
 
 #pragma mark - View controller boilerplate

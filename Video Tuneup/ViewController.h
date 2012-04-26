@@ -40,7 +40,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *mediaLibraryButton;
 @property (nonatomic, retain) UIPopoverController *mediaLibraryPopover;
 
-@property (nonatomic, retain) IBOutlet UIButton *derpSendPostRequestButton;
+@property (nonatomic, retain) IBOutlet UIButton *internetRequestButton;
 
 
 - (void)hideCameraRollText;

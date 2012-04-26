@@ -73,13 +73,19 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	NSLog(@"Song send failed");
+    if(_viewController != nil) {
+        [_viewController.internetRequestButton setTitle:@"Internet Tune-up (failed)" forState:UIControlStateNormal];
+    }
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	NSLog(@"Song send finished loading.");
 
     [fileHandle closeFile];
-
+    if(_viewController != nil) {
+        [_viewController.internetRequestButton setTitle:@"Internet Tune-up (failed)" forState:UIControlStateNormal];
+    }
+    
     // This is happening before file is completely sent back. Need to change timeout.
 
     NSLog(@"Received song path is %@", songPath);

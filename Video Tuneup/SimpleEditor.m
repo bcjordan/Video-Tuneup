@@ -78,7 +78,7 @@
 - (void)addSongTrackToComposition:(AVMutableComposition *)composition withAudioMix:(AVMutableAudioMix *)audioMix
 {	
 	// Clip song duration to composition duration.
-	CMTimeRange songTimeRange = CMTimeRangeMake(self.songStartTime, self.song.duration);
+	CMTimeRange songTimeRange = CMTimeRangeMake(self.songStartTime, self.video.duration);
 	if (CMTIME_COMPARE_INLINE(CMTimeRangeGetEnd(songTimeRange), >, [composition duration]))
 		songTimeRange.duration = CMTimeSubtract([composition duration], songTimeRange.start);
 	
@@ -89,12 +89,14 @@
 	// Ramp tracks down and up at beginning and end.
 	NSMutableArray *trackMixArray = [NSMutableArray array];
 
-    CMTime rampDuration = CMTimeMake(1, 2); // half-second ramps
-
+    CMTime rampDuration = CMTimeMake(1, 2); // half-second ramp-ups
+    CMTime endRampDuration = CMTimeMake(4, 2); // two-second ramp-downs
+    
     // Ramp song down and up
     AVMutableAudioMixInputParameters *trackMix = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:compositionSongTrack];
-    [trackMix setVolumeRampFromStartVolume:0.2 toEndVolume:1.0 timeRange:CMTimeRangeMake(CMTimeSubtract(songTimeRange.start, rampDuration), rampDuration)];
-    [trackMix setVolumeRampFromStartVolume:1.0 toEndVolume:0.2 timeRange:CMTimeRangeMake(CMTimeRangeGetEnd(songTimeRange), rampDuration)];
+    // CMTimeRangeMake(CMTimeSubtract(songTimeRange.start, rampDuration)
+    [trackMix setVolumeRampFromStartVolume:0.3 toEndVolume:0.5 timeRange:CMTimeRangeMake(songTimeRange.start, rampDuration)];
+    [trackMix setVolumeRampFromStartVolume:0.5 toEndVolume:0.0 timeRange:CMTimeRangeMake(CMTimeSubtract(CMTimeRangeGetEnd(songTimeRange), endRampDuration), endRampDuration)];
     [trackMixArray addObject:trackMix];
 
 	audioMix.inputParameters = trackMixArray;
