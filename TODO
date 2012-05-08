@@ -14,7 +14,7 @@
   v Video popup should disappear when a video is selected
   * Local mixing should happen when a song is selected
   * Create better buttons from 'demo' stuff
-  * Instructional NO-CONTENT view
-    * show when no video selected
-    * when video selected: hide; show player view
-    * write up text
+  v Instructional NO-CONTENT view
+    v show when no video selected
+    v when video selected: hide; show player view
+    v write up text

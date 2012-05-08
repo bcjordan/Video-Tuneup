@@ -25,6 +25,7 @@
     id mTimeObserver;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *defaultHelpView;
 @property (nonatomic, retain) AVPlayer *player;
 @property (nonatomic, retain) SimpleEditor *editor;
 @property (retain) AVPlayerItem *playerItem;
@@ -43,6 +44,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *internetRequestButton;
 
 
+- (void)toggleHelpView;
 - (void)hideCameraRollText;
 - (IBAction)loadDefaultAssetFromFile:sender;
 - (IBAction)loadAssetFromFile:(NSURL *)fileURL;

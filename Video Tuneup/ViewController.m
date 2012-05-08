@@ -20,7 +20,7 @@ static const NSString *ItemStatusContext;
 @implementation ViewController
 
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
-mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
+mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpView;
 
 @synthesize internetRequestButton;
 
@@ -497,6 +497,8 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
     [super viewDidLoad];
 
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"hixs_pattern_evolution.png"]];
+    
+    [defaultHelpView setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"noisy tile.png"]]];
 
 
     NSLog(@"viewDidLoad");
@@ -548,6 +550,19 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton;
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
+    }
+}
+
+- (void)toggleHelpView {
+    if (! [defaultHelpView isHidden]) {
+        [playerView setHidden:NO];
+        [videoNavBar setHidden:NO];
+        [defaultHelpView setHidden:YES];
+    }
+    else {
+        [defaultHelpView setHidden:NO];
+        [playerView setHidden:YES];
+        [videoNavBar setHidden:YES];
     }
 }
 

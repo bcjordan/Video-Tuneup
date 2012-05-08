@@ -185,6 +185,7 @@
             NSLog(@"AssetURL %@", [assetURLs valueForKey:assetURLKey]);
             [_viewController loadAssetFromFile:[assetURLs valueForKey:assetURLKey]];
             [[_viewController mediaLibraryPopover] dismissPopoverAnimated:YES]; // Dismiss the popover view
+            [_viewController toggleHelpView]; // remove the default help view if it's there.
         }
     }
 

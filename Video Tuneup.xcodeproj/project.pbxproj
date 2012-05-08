@@ -16,6 +16,7 @@
 		D115C7331559A00A008BEA8D /* mix icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D115C72E1559A00A008BEA8D /* mix icon.png */; };
 		D115C7341559A00A008BEA8D /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D115C72F1559A00A008BEA8D /* toolbar.png */; };
 		D115C7351559A00A008BEA8D /* video icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D115C7301559A00A008BEA8D /* video icon.png */; };
+		D14D0E351559C51400DC6034 /* noisy tile.png in Resources */ = {isa = PBXBuildFile; fileRef = D14D0E341559C51400DC6034 /* noisy tile.png */; };
 		D19C74771547289A006E4122 /* AssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D19C74761547289A006E4122 /* AssetsViewController.m */; };
 		D1A3079F1548F71C00FA4A94 /* WebserviceCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A3079E1548F71C00FA4A94 /* WebserviceCommunicator.m */; };
 		D3531C9C1523B7BB00E286B8 /* SimpleEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D3531C9B1523B7BB00E286B8 /* SimpleEditor.m */; };
@@ -69,6 +70,7 @@
 		D115C72E1559A00A008BEA8D /* mix icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mix icon.png"; sourceTree = "<group>"; };
 		D115C72F1559A00A008BEA8D /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
 		D115C7301559A00A008BEA8D /* video icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video icon.png"; sourceTree = "<group>"; };
+		D14D0E341559C51400DC6034 /* noisy tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noisy tile.png"; sourceTree = "<group>"; };
 		D19C74751547289A006E4122 /* AssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetsViewController.h; path = Classes/AssetsViewController.h; sourceTree = "<group>"; };
 		D19C74761547289A006E4122 /* AssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetsViewController.m; path = Classes/AssetsViewController.m; sourceTree = "<group>"; };
 		D1A3079D1548F71C00FA4A94 /* WebserviceCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebserviceCommunicator.h; path = Classes/WebserviceCommunicator.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		D115C72B1559A00A008BEA8D /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				D14D0E341559C51400DC6034 /* noisy tile.png */,
 				D115C72C1559A00A008BEA8D /* audio icon.png */,
 				D115C72D1559A00A008BEA8D /* export button.png */,
 				D115C72E1559A00A008BEA8D /* mix icon.png */,
@@ -377,6 +380,7 @@
 				D115C7331559A00A008BEA8D /* mix icon.png in Resources */,
 				D115C7341559A00A008BEA8D /* toolbar.png in Resources */,
 				D115C7351559A00A008BEA8D /* video icon.png in Resources */,
+				D14D0E351559C51400DC6034 /* noisy tile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
