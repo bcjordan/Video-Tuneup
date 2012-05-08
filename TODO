@@ -11,7 +11,7 @@
 # 2012.05.08
 * Interface (Teddy)
   v Get new interface set up in Interface Builder
-  * Video popup should disappear when a video is selected
+  v Video popup should disappear when a video is selected
   * Local mixing should happen when a song is selected
   * Create better buttons from 'demo' stuff
   * Instructional NO-CONTENT view

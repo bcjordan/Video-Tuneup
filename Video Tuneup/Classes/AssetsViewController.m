@@ -184,6 +184,7 @@
         if (_viewController != nil) {
             NSLog(@"AssetURL %@", [assetURLs valueForKey:assetURLKey]);
             [_viewController loadAssetFromFile:[assetURLs valueForKey:assetURLKey]];
+            [[_viewController mediaLibraryPopover] dismissPopoverAnimated:YES]; // Dismiss the popover view
         }
     }
 
