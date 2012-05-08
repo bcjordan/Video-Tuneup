@@ -7,3 +7,14 @@
     1. Send a file
     2. We respond with the fixed-up file
 
+
+# 2012.05.08
+* Interface (Teddy)
+  v Get new interface set up in Interface Builder
+  * Video popup should disappear when a video is selected
+  * Local mixing should happen when a song is selected
+  * Create better buttons from 'demo' stuff
+  * Instructional NO-CONTENT view
+    * show when no video selected
+    * when video selected: hide; show player view
+    * write up text
