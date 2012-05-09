@@ -36,6 +36,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *exportButton;
 @property (nonatomic, retain) IBOutlet UIToolbar *videoNavBar;
 @property (nonatomic, retain) IBOutlet UILabel *exportStatus;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *exportActivityIndicator;
 @property (nonatomic, retain) IBOutlet UISlider* mScrubber;
 
 @property (nonatomic, retain) IBOutlet UIButton *mediaLibraryButton;

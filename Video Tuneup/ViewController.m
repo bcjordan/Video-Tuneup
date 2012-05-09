@@ -20,7 +20,7 @@ static const NSString *ItemStatusContext;
 @implementation ViewController
 
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
-mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpView;
+exportActivityIndicator, mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpView;
 
 @synthesize internetRequestLabel;
 
@@ -367,6 +367,8 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpVie
 
 - (IBAction)exportToCameraRoll:(id)sender {
 
+    [exportActivityIndicator setHidden:NO];
+    [exportActivityIndicator startAnimating];
     [exportButton setTitle:@"Exporting..." forState:UIControlStateNormal];
     [exportButton setEnabled:NO];
     NSLog(@"Editing...");
@@ -435,6 +437,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpVie
                                                 [exportButton setEnabled:YES];
                                                 
                                                 [exportStatus setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0]];
+                                                [exportActivityIndicator stopAnimating];
                                                 [exportStatus setText:@"Saved!"];
 //                                                [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
 //                                                [exportStatus setBackgroundColor:[UIColor colorWithRed:0.0 green:200.0 blue:0.0 alpha:255.0]];
