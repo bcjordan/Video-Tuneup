@@ -335,7 +335,7 @@
 		D36CCD2815227D05003CCAFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = D36CCD2B15227D05003CCAFC /* Build configuration list for PBXProject "Video Tuneup" */;
 			compatibilityVersion = "Xcode 3.2";

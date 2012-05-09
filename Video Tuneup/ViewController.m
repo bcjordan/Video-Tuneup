@@ -435,8 +435,8 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpVie
                                                 [exportButton setEnabled:YES];
                                                 
                                                 [exportStatus setTextColor:[UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0]];
-                                                [exportStatus setText:@"Exported to Camera Roll"];
-                                                [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
+                                                [exportStatus setText:@"Saved!"];
+//                                                [exportStatus setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"argyle.png"]]];
 //                                                [exportStatus setBackgroundColor:[UIColor colorWithRed:0.0 green:200.0 blue:0.0 alpha:255.0]];
 
 												[self performSelector:@selector(hideCameraRollText) withObject:nil afterDelay:5.0];
