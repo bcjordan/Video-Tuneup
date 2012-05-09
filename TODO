@@ -23,3 +23,7 @@
   v (3.) Put the whole button in parentheses to show that it's optional.
   v Make 3. button the Internet Tune-up button (and remove current Internet Tune-up button)
   v Put a label on 3. button that shows status of internet requests (like the current RoundRect internet button's changing label text)
+
+* Export button
+  * Style the 'Saved!' label
+  * Add activity indicator to the button so we know something's going on and it's going to take a bit (could this eventually be done with a progress bar?)
