@@ -41,7 +41,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *mediaLibraryButton;
 @property (nonatomic, retain) UIPopoverController *mediaLibraryPopover;
 
-@property (nonatomic, retain) IBOutlet UIButton *internetRequestButton;
+@property (nonatomic, retain) IBOutlet UILabel *internetRequestLabel;
 
 
 - (void)toggleHelpView;

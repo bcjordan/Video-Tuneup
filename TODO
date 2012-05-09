@@ -20,6 +20,6 @@
     v write up text
 
 * 3. button (Teddy)
-  * (3.) Put the whole button in parentheses to show that it's optional.
-  * Make 3. button the Internet Tune-up button (and remove current Internet Tune-up button)
-  * Put a label on 3. button that shows status of internet requests (like the current RoundRect internet button's changing label text)
+  v (3.) Put the whole button in parentheses to show that it's optional.
+  v Make 3. button the Internet Tune-up button (and remove current Internet Tune-up button)
+  v Put a label on 3. button that shows status of internet requests (like the current RoundRect internet button's changing label text)

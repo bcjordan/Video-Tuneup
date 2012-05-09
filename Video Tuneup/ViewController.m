@@ -22,7 +22,7 @@ static const NSString *ItemStatusContext;
 @synthesize player, playerItem, playerView, playButton, pauseButton, rewindButton, editor, videoNavBar, exportStatus,
 mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpView;
 
-@synthesize internetRequestButton;
+@synthesize internetRequestLabel;
 
 #pragma mark - Video playback
 
@@ -123,7 +123,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpVie
     
     NSLog(@"Song asset duration is %f", CMTimeGetSeconds([songAsset duration]));
     if(CMTimeGetSeconds([songAsset duration]) == 0){
-        [internetRequestButton setTitle:@"Internet Tune-up (failed)" forState:UIControlStateNormal];
+        [internetRequestLabel setText:@"(failed)"];
         return;
     }
     NSLog(@"Refreshing editor");
@@ -481,7 +481,7 @@ mScrubber, mediaLibraryButton, mediaLibraryPopover, exportButton, defaultHelpVie
     NSURL *songFileURL = [[NSBundle mainBundle] URLForResource:@"song" withExtension:@"mp3"];
     [com setParentController:self];
     [com mixMusic:songFileURL];
-    [internetRequestButton setTitle:@"Attempting..." forState:UIControlStateNormal];
+    [internetRequestLabel setText:@"(attempting...)"];
 }
 
 #pragma mark - View controller boilerplate
